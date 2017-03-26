@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EDit your name here " />
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/editText"
+        android:visibility="visible"
+        android:text="OK" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toLeftOf="@id/ok"
+        android:text="Cancel" />
+
+
+
+    <TextView
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="48sp"
+        android:background="#cf9"
+        android:text="CENTER"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center"
+        android:layout_alignLeft="@id/center"
+        android:background="#cf9"
+        android:text="North"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/center"
+        android:layout_alignTop="@id/center"
+        android:background="#cf9"
+        android:text="East"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/center"
+        android:layout_toLeftOf="@id/center"
+        android:background="#cf9"
+        android:text="West"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#cf9"
+        android:layout_below="@id/center"
+        android:layout_alignRight="@id/center"
+        android:text="South"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#cf9"
+        android:layout_below="@id/center"
+        android:layout_alignBaseline="@id/center"
+        android:text="BaseLineText"/>
+</RelativeLayout>

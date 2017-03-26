@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CourseraCatalogue</string>
+    <string name="text_one">Text one</string>
+    <string name="text_two">Text Two</string>
+    <string name="text_three">Text Three</string>
 </resources>
