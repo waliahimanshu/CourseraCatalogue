@@ -1,6 +1,7 @@
 package com.waliahimanshu.courseracatalogue;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,7 +28,13 @@ public class HomeActivity extends AppCompatActivity  {
 
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(TAG, "on ConfigurationChanged");
 
+
+    }
 
     public void onClick(View v) {
     startOther();
