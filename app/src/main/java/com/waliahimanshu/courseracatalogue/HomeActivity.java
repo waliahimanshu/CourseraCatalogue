@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class HomeActivity extends AppCompatActivity  {
 
     public static String TAG = HomeActivity.class.getSimpleName();
+    private Button button;
 
 
     @Override
@@ -18,14 +21,20 @@ public class HomeActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_home);
 
 
-        View viewById = findViewById(R.id.editText);
-        assert viewById != null;
+        EditText viewById = (EditText)findViewById(R.id.editText);
+        button = (Button)findViewById(R.id.button);
+
 
     }
 
+
+
     public void onClick(View v) {
-        v.animate().alphaBy(10);
-        startOther();
+    startOther();
+
+    }
+    public void onClickTextTwo(View view) {
+     button.setText("Clicked by View text 2");
     }
     private void startOther() {
         Intent intent = new Intent(this, TestActivity.class);
@@ -36,6 +45,15 @@ public class HomeActivity extends AppCompatActivity  {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "on Start");
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Log.i(TAG, "on SaveInstanceState");
+        outState.putString("TEXT", button.getText().toString());
 
     }
 
@@ -54,11 +72,23 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
     @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.i(TAG, "on RestoreInstanceState");
+
+        String text = (String)savedInstanceState.get("TEXT");
+        button.setText(text);
+
+
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "On stop");
 
     }
+
 
     @Override
     protected void onDestroy() {
@@ -66,6 +96,4 @@ public class HomeActivity extends AppCompatActivity  {
         Log.i(TAG, "On destroy");
 
     }
-
-
 }
