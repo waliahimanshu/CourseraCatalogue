@@ -7,11 +7,7 @@ public class RetrofitClient {
 
     public RetrofitClient() {
 
-        String baseUrl="";
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
 
     }
 

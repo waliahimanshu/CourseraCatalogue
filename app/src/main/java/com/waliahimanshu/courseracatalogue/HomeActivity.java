@@ -9,6 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class HomeActivity extends AppCompatActivity  {
 
     public static String TAG = HomeActivity.class.getSimpleName();
@@ -25,6 +32,28 @@ public class HomeActivity extends AppCompatActivity  {
         EditText viewById = (EditText)findViewById(R.id.editText);
         button = (Button)findViewById(R.id.button);
 
+        Call<Response> responseCall = new RetrofitServiceImpl().listRepos();
+
+
+        responseCall.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+
+                response.code();
+               Response resp =  response.body();
+            }
+
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+
+                t.printStackTrace();
+                Throwable cause = t.getCause();
+                String message = t.getMessage();
+                StackTraceElement[] stackTrace = t.getStackTrace();
+
+            }
+        });
 
     }
 
