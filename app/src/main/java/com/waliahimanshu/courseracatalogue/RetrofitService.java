@@ -6,5 +6,5 @@ import retrofit2.http.GET;
 public interface RetrofitService {
 
     @GET("api/courses.v1")
-    Call<Response> listRepos();
+    Call<CoursesResponse> listRepos();
 }

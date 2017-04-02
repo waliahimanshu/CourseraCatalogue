@@ -1,7 +1,5 @@
 package com.waliahimanshu.courseracatalogue;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -22,7 +20,7 @@ class RetrofitServiceImpl implements RetrofitService {
         retrofitService1 = retrofit.create(RetrofitService.class);
     }
 
-    public Call<Response> listRepos() {
+    public Call<CoursesResponse> listRepos() {
        return retrofitService1.listRepos();
     }
 }

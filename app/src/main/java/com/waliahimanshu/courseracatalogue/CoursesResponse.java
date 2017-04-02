@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Response {
+public class CoursesResponse {
 
     @SerializedName("elements")
     @Expose
-    public List<Element> elements = null;
+    public List<Courses> courses = null;
     @SerializedName("paging")
     @Expose
     public Paging paging;
