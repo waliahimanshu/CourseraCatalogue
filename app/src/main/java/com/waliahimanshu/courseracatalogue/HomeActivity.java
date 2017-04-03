@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.waliahimanshu.courseracatalogue.Service.CoursesResponse;
 import com.waliahimanshu.courseracatalogue.Service.RetrofitRestClient;
@@ -26,8 +27,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Log.i(TAG, "On create");
 
-        getDataSynchronously();
-       // setUpRecyclerView();
+        getDataViaApiAsynchronously();
     }
 
     @Override
@@ -48,12 +48,14 @@ public class HomeActivity extends AppCompatActivity {
 
                 response.code();
                 resp = response.body();
+                setUpRecyclerView();
+
             }
 
 
             @Override
             public void onFailure(Call<CoursesResponse> call, Throwable t) {
-
+                Toast.makeText(getBaseContext(),t.getMessage(),Toast.LENGTH_LONG).show();
                 t.printStackTrace();
             }
         });
@@ -75,8 +77,6 @@ public class HomeActivity extends AppCompatActivity {
 //                }
 //            }
 //        }).start();
-
-
 
 
     }
@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         Log.i(TAG, "On pause");
 
         //user navigates to second activity
-       // super.onCreate(null);
+        // super.onCreate(null);
         //super.onStart();
         //super.onResume(); // second activity is visible
     }
@@ -141,5 +141,4 @@ public class HomeActivity extends AppCompatActivity {
         Log.i(TAG, "On destroy");
 
     }
-
 }
