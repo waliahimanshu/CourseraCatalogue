@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue;
+package com.waliahimanshu.courseracatalogue.Service;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -6,5 +6,5 @@ import retrofit2.http.GET;
 public interface RetrofitService {
 
     @GET("api/courses.v1")
-    Call<CoursesResponse> listRepos();
+    Call<CoursesResponse> listAllCourses();
 }

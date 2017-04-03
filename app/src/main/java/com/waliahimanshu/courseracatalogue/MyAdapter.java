@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.waliahimanshu.courseracatalogue.Service.Courses;
+
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -47,18 +49,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         private final TextView courseName;
         private final TextView courseType;
+        private final TextView position;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             courseName = (TextView) itemView.findViewById(R.id.course_name);
             courseType = (TextView) itemView.findViewById(R.id.course_type);
+            position = (TextView) itemView.findViewById(R.id.position);
         }
 
         public void setData(Courses currentObject, int position) {
 
             courseName.setText(currentObject.name);
             courseType.setText(currentObject.courseType);
+            this.position.setText(position);
+
 
         }
     }

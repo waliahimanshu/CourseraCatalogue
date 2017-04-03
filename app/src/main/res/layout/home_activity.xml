@@ -4,17 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="get data"
-        android:onClick="onClick"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="display data"
-        android:onClick="onClickDisplay"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

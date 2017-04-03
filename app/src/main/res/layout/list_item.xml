@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    app:cardBackgroundColor="@color/colorAccent"
+    app:cardBackgroundColor="#dfe"
     app:cardCornerRadius="7dp">
 
     <RelativeLayout
@@ -29,13 +29,23 @@
             android:layout_margin="10dp"
             tools:text="Course Type" />
 
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:text="1"
+            android:textStyle="bold" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_margin="10dp"
-
             android:layout_alignParentRight="true"
+
+            android:layout_below="@id/course_name"
+            android:layout_margin="10dp"
             android:src="@drawable/ic_delete_forever_black_24px" />
 
     </RelativeLayout>
