@@ -3,8 +3,10 @@ package com.waliahimanshu.courseracatalogue;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -86,10 +88,18 @@ public class HomeActivity extends AppCompatActivity {
 
         MyAdapter adapter = new MyAdapter(this, resp.courses);
         recyclerView.setAdapter(adapter);
+
+        //diff layout managers
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        StaggeredGridLayoutManager staggeredGridLayoutManager =
+                new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
     }
 
 
