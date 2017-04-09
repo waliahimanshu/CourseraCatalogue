@@ -51,6 +51,7 @@ public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
+        //activity visible to user but can not interact
         Log.i(TAG, "on Start");
 
     }
@@ -58,7 +59,6 @@ public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
         Log.i(TAG, "on SaveInstanceState");
         outState.putString("TEXT", button.getText().toString());
 
@@ -67,6 +67,8 @@ public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
     @Override
     protected void onResume() {
         super.onResume();
+        // visible and can interact
+
         Log.i(TAG, "on Resume");
 
     }
@@ -74,6 +76,10 @@ public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
     @Override
     protected void onPause() {
         super.onPause();
+        //user navigates to second activity
+        // super.onCreate(null);
+        //super.onStart();
+        //super.onResume(); // second activity is visible
         Log.i(TAG, "on Pause");
 
     }
