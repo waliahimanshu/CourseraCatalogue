@@ -9,6 +9,8 @@ public class RetrofitRestClient implements RetrofitService {
     private final RetrofitService retrofitService1;
     private static final String BASE_URL = "https://api.coursera.org/";
 
+    //https://api.coursera.org/api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds&limit=110
+
     public RetrofitRestClient() {
 
         Retrofit retrofit = new Retrofit.Builder()

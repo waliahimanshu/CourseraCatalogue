@@ -3,4 +3,6 @@
     <string name="text_one">Text one</string>
     <string name="text_two">Text Two</string>
     <string name="text_three">Text Three</string>
+    <string name="app_label">CourseraCatalogue</string>
+    <string name="search_hint">search courses</string>
 </resources>

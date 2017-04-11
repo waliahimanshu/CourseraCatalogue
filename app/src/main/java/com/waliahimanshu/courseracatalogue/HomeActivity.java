@@ -1,11 +1,14 @@
 package com.waliahimanshu.courseracatalogue;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.Toast;
 
@@ -24,7 +27,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home_activity);
-        getDataViaApiAsynchronously();
+        SearchView searchView = (SearchView) findViewById(R.id.search);
+// Sets searchable configuration defined in searchable.xml for this SearchView
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+//        getDataViaApiAsynchronously();
     }
 
     // Execute the call asynchronously. Get a positive or negative callback.
@@ -43,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<CoursesResponse> call, Throwable t) {
-                Toast.makeText(getBaseContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), t.getMessage(), Toast.LENGTH_LONG).show();
                 t.printStackTrace();
             }
         });
@@ -60,11 +69,11 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         StaggeredGridLayoutManager staggeredGridLayoutManager =
-                new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
     }
