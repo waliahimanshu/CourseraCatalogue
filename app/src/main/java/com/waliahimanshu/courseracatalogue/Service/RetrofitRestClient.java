@@ -24,4 +24,10 @@ public class RetrofitRestClient implements RetrofitService {
     public Call<CoursesResponse> listAllCourses() {
        return retrofitService1.listAllCourses();
     }
+
+    @Override
+    public Call<CoursesResponse> search(String searchText) {
+
+        return retrofitService1.search(searchText);
+    }
 }
