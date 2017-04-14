@@ -11,58 +11,70 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.Editable;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.waliahimanshu.courseracatalogue.Service.CoursesResponse;
 import com.waliahimanshu.courseracatalogue.Service.RetrofitRestClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 
-public class HomeActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class HomeActivity extends AppCompatActivity {
     public static String TAG = HomeActivity.class.getSimpleName();
     private CoursesResponse resp;
+    private String start;
+    private String limit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home_activity);
-        SearchView searchView = (SearchView) findViewById(R.id.search);
 
+        SearchView searchView = (SearchView) findViewById(R.id.search);
         searchView.setIconifiedByDefault(false);
-// Sets searchable configuration defined in searchable.xml for this SearchView
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-        // When a user executes a search the system starts your searchable activity and sends it a ACTION_SEARCH intent
+        EditText startView = (EditText) findViewById(R.id.start);
+        EditText limitView = (EditText) findViewById(R.id.limit);
 
-        Intent intent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            doMySearch(query);
-        }
+        start = startView.getText().toString();
+        limit = startView.getText().toString();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-        getDataViaApiAsynchronously("hello");
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getDataViaApiAsynchronously(query, start, limit);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
-    private void doMySearch(String query) {
 
-    }
-
-    // Execute the call asynchronously. Get a positive or negative callback.
-    private void getDataViaApiAsynchronously(String newText) {
-        Call<CoursesResponse> responseCall = new RetrofitRestClient().search(newText);
+    private void getDataViaApiAsynchronously(String query, String start, String limit) {
+        Call<CoursesResponse> responseCall = new RetrofitRestClient().search(query, start, limit);
         responseCall.enqueue(new Callback<CoursesResponse>() {
             @Override
             public void onResponse(Call<CoursesResponse> call, retrofit2.Response<CoursesResponse> response) {
-
-                response.code();
                 resp = response.body();
-                Log.d("Hello","got the response");
-                setUpRecyclerView();
+                Gson gson = new Gson();
+                Toast.makeText(getBaseContext(), response.code() + " " + response.message(), Toast.LENGTH_LONG).show();
+                Log.d(TAG, gson.toJson(response.raw().request().url()));
+                if (response.isSuccessful()) {
+                    setUpRecyclerView();
+                }
 
             }
 
@@ -82,31 +94,8 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
         MyAdapter adapter = new MyAdapter(this, resp.courses);
         recyclerView.setAdapter(adapter);
 
-        //diff layout managers
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        StaggeredGridLayoutManager staggeredGridLayoutManager =
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-
-        recyclerView.setLayoutManager(staggeredGridLayoutManager);
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        Log.d("Hello","onQueryTextSubmit");
-
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        Log.d("Hello","onQueryTextChange");
-
-        getDataViaApiAsynchronously(newText);
-        return false;
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 }

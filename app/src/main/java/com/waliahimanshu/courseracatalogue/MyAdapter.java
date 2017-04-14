@@ -50,23 +50,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         private final TextView courseName;
         private final TextView courseType;
-        private final TextView number;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             courseName = (TextView) itemView.findViewById(R.id.course_name);
             courseType = (TextView) itemView.findViewById(R.id.course_type);
-            number = (TextView) itemView.findViewById(R.id.position);
         }
 
         public void setData(Courses currentObject, int position) {
 
             courseName.setText(currentObject.name);
             courseType.setText(currentObject.courseType);
-            number.setText(Integer.toString(position));
-
-
         }
     }
 }

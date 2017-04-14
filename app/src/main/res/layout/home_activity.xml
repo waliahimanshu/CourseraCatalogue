@@ -4,12 +4,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+
+    <EditText
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Start"
+        android:textColorHint="@color/green_500"/>
+
+    <EditText
+        android:id="@+id/limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/green_500"
+        android:hint="Limit"/>
+
     <android.support.v7.widget.SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
+        android:searchIcon="@drawable/coursera"
+        style="@style/SearchViewTheme"
         android:layout_height="wrap_content">
-
-
     </android.support.v7.widget.SearchView>
 
 
@@ -17,7 +33,6 @@
         android:id="@+id/recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
     </android.support.v7.widget.RecyclerView>
 
 

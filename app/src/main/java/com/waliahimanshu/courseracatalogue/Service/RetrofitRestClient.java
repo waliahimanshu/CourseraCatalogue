@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitRestClient implements RetrofitService {
 
-    private final RetrofitService retrofitService1;
+    private final RetrofitService retrofitService;
     private static final String BASE_URL = "https://api.coursera.org/";
 
     //https://api.coursera.org/api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds&limit=110
@@ -18,16 +18,16 @@ public class RetrofitRestClient implements RetrofitService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        retrofitService1 = retrofit.create(RetrofitService.class);
+        retrofitService = retrofit.create(RetrofitService.class);
     }
 
     public Call<CoursesResponse> listAllCourses() {
-       return retrofitService1.listAllCourses();
+       return retrofitService.listAllCourses();
     }
 
     @Override
-    public Call<CoursesResponse> search(String searchText) {
+    public Call<CoursesResponse> search(String newText, String start, String searchText) {
 
-        return retrofitService1.search(searchText);
+        return retrofitService.search(newText, start, searchText);
     }
 }
