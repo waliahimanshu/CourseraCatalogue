@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             tools:text="Course Name" />
 
         <TextView
-            android:id="@+id/course_type"
+            android:id="@+id/instructor_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/course_name"
-            android:layout_margin="10dp"
-            tools:text="Course Type" />
+            android:layout_margin="5dp"
+            tools:text="Instructor name" />
 
+        <TextView
+            android:id="@+id/partner_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            tools:text="Partner name" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="@color/blue_400" />
+
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

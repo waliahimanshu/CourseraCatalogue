@@ -2,7 +2,6 @@ package com.waliahimanshu.courseracatalogue;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,34 +9,31 @@ import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.Service.Courses;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private final LayoutInflater layoutInflater;
     private List<Courses> courses;
     private String TAG = MyAdapter.class.getSimpleName();
 
-    public MyAdapter(Context context , List<Courses> courses) {
+    MyAdapter(Context context, List<Courses> courses) {
         layoutInflater = LayoutInflater.from(context);
-
         this.courses = courses;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        //this is re-used after initial view
-        Log.i(TAG, "onCreateViewHolder");
         View view = layoutInflater.inflate(R.layout.list_item, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Log.i(TAG, "onBindViewHolder" + position);
         Courses currentObject = courses.get(position);
-        holder.setData(currentObject, position);
+        holder.setData(currentObject);
 
     }
 
@@ -46,22 +42,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return courses.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView courseName;
-        private final TextView courseType;
+        private final TextView instructorName;
+        private final TextView partnerName;
 
-        public MyViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
 
             courseName = (TextView) itemView.findViewById(R.id.course_name);
-            courseType = (TextView) itemView.findViewById(R.id.course_type);
+            instructorName = (TextView) itemView.findViewById(R.id.instructor_id);
+            partnerName = (TextView) itemView.findViewById(R.id.partner_id);
         }
 
-        public void setData(Courses currentObject, int position) {
+        void setData(Courses currentObject) {
 
             courseName.setText(currentObject.name);
-            courseType.setText(currentObject.courseType);
+            instructorName.setText(Arrays.toString(currentObject.instructorIds));
+            partnerName.setText(Arrays.toString(currentObject.partnerIds));
         }
     }
 }
