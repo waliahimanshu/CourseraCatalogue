@@ -12,13 +12,13 @@ import com.waliahimanshu.courseracatalogue.Service.Courses;
 import java.util.Arrays;
 import java.util.List;
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private final LayoutInflater layoutInflater;
     private List<Courses> courses;
     private String TAG = MyAdapter.class.getSimpleName();
 
-    MyAdapter(Context context, List<Courses> courses) {
+    public MyAdapter(Context context, List<Courses> courses) {
         layoutInflater = LayoutInflater.from(context);
         this.courses = courses;
     }

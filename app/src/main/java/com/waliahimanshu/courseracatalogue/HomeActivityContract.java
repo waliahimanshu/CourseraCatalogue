@@ -8,7 +8,7 @@ public interface HomeActivityContract {
 
     interface Presenter {
 
-        Response<CoursesResponse> loadData(String query, String start, String limit);
+        Response<CoursesResponse> loadData(String query);
 
     }
 
