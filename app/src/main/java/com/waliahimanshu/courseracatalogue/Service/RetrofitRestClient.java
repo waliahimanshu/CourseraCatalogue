@@ -36,7 +36,6 @@ public class RetrofitRestClient implements RetrofitService {
 
     @Override
     public Call<CoursesResponse> search(String query) {
-
         return retrofitService.search(query);
     }
 }
