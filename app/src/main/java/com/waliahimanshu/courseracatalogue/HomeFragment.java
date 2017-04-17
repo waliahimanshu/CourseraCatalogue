@@ -38,8 +38,8 @@ public class HomeFragment extends Fragment {
 
         @Override
         public boolean onQueryTextChange(String newText) {
-            homeFragmentPresenter.loadData(newText);
-            return false;
+          homeFragmentPresenter.onQueryTextChange(newText);
+          return false;
         }
       };
 
@@ -54,13 +54,13 @@ public class HomeFragment extends Fragment {
     return view;
   }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        homeFragmentPresenter.unSubscribe();
-    }
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+    homeFragmentPresenter.unSubscribe();
+  }
 
-    private void setUpSearch() {
+  private void setUpSearch() {
     searchView.setIconifiedByDefault(false);
     Activity activity = getActivity();
     SearchManager searchManager =

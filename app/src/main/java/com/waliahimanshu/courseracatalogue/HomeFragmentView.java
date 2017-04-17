@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.Service.Courses;
 
@@ -19,6 +20,9 @@ class HomeFragmentView implements HomeFragmentContract.View {
   @BindView(R.id.recycler_view)
   RecyclerView recyclerView;
 
+  @BindView(R.id.no_of_api_calls)
+  TextView noOfApiCalls;
+
   public HomeFragmentView(Context baseContext, View view) {
     this.baseContext = baseContext;
     this.view = view;
@@ -30,7 +34,12 @@ class HomeFragmentView implements HomeFragmentContract.View {
     setUpRecyclerView(courses);
   }
 
-  private void setUpRecyclerView(List<Courses> courses) {
+    @Override
+    public void setApiCallTextView(int count) {
+        noOfApiCalls.setText("API CALLS :` "+count);
+    }
+
+    private void setUpRecyclerView(List<Courses> courses) {
     MyAdapter adapter = new MyAdapter(baseContext, courses);
     recyclerView.setAdapter(adapter);
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(baseContext);
