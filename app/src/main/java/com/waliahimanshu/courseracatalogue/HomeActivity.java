@@ -21,11 +21,11 @@ public class HomeActivity extends AppCompatActivity {
         HomeFragment fragment = new HomeFragment();
 
         // to pass data from activity to fragment
-        // fragment.setArguments(new Bundle());
+        /* fragment.setArguments(new Bundle());*/
 
         // enable back button
-        // transaction.addToBackStack("");
-        // manager.popBackStack();
+        /* transaction.addToBackStack("");
+         manager.popBackStack();*/
 
         transaction.add(R.id.container, fragment, HomeFragment.class.getSimpleName());
         transaction.commit();

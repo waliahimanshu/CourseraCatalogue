@@ -1,5 +1,6 @@
 package com.waliahimanshu.courseracatalogue.Service;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -15,7 +16,7 @@ public interface RetrofitService {
      * Query("limit") String limit
      */
     @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds&q=search")
-    Call<CoursesResponse> search(@Query("query") String query);
+    Single<CoursesResponse> search(@Query("query") String query);
 }
 
 

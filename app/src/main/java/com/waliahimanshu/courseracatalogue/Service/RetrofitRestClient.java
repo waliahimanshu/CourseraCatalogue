@@ -1,9 +1,11 @@
 package com.waliahimanshu.courseracatalogue.Service;
 
+import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitRestClient implements RetrofitService {
@@ -24,6 +26,7 @@ public class RetrofitRestClient implements RetrofitService {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(httpClient.build())
                 .build();
 
@@ -35,7 +38,7 @@ public class RetrofitRestClient implements RetrofitService {
     }
 
     @Override
-    public Call<CoursesResponse> search(String query) {
+    public Single<CoursesResponse> search(String query) {
         return retrofitService.search(query);
     }
 }
