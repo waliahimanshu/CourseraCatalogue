@@ -2,7 +2,7 @@
 
 Sample app to demonstrate Rx java debounce, by calling Coursera API.
 
-## Librarys used 
+## 
  * [x] Retrofit with RxJava adapter
  * [x] RxJava 
  * [x] ButterKnife
