@@ -12,8 +12,8 @@ Sample app to demonstrate Rx java debounce, by calling Coursera API.
 
 * [ ] Use dagger.
 * [ ] Add integration and UI test with mock data
-* [ ] Add bottome navigation.
-* [ ] Display more data by firing multiple simultaneous request (RxJava).
+* [ ] Add bottom navigation.
+* [ ] Advance search fire multiple simultaneous api calls (RxJava).
 
 
 
