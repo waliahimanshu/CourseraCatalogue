@@ -1,6 +1,7 @@
 # CourseraCatalogue
+Goal : A Simple Android Apps with MVP, Dagger, RxJava, and Retrofit
 
-Sample app to demonstrate Rx java debounce, by calling Coursera API.
+Demonstrate Rx java debounce, by calling Coursera API.
 
 ## 
  * [x] Retrofit with RxJava adapter
