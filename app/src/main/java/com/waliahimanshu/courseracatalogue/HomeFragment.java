@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.waliahimanshu.courseracatalogue.Service.RetrofitRestClient;
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +22,8 @@ public class HomeFragment extends Fragment {
     @BindView(R.id.search_view)
     SearchView searchView;
 
-    private HomeFragmentPresenter homeFragmentPresenter;
+    @Inject
+    HomeFragmentPresenter homeFragmentPresenter;
 
     @Override
     public View onCreateView(
@@ -30,10 +31,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         ButterKnife.bind(this, view);
         setUpSearch();
-
-        HomeFragmentView fragmentView = new HomeFragmentView(getActivity().getBaseContext(), view);
-        homeFragmentPresenter =
-                new HomeFragmentPresenter(fragmentView, new RetrofitRestClient());
 
         return view;
     }

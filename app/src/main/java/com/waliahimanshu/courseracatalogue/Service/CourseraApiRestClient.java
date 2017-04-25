@@ -1,5 +1,7 @@
 package com.waliahimanshu.courseracatalogue.Service;
 
+import com.waliahimanshu.courseracatalogue.Service.Response.CoursesResponse;
+
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -8,13 +10,13 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitRestClient implements RetrofitService {
+public class CourseraApiRestClient implements CourseraApiService {
 
-    private final RetrofitService retrofitService;
+    private final CourseraApiService courseraApiService;
     private static final String BASE_URL = "https://api.coursera.org/";
 
 
-    public RetrofitRestClient() {
+    public CourseraApiRestClient() {
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         // set your desired log level
@@ -30,15 +32,15 @@ public class RetrofitRestClient implements RetrofitService {
                 .client(httpClient.build())
                 .build();
 
-        retrofitService = retrofit.create(RetrofitService.class);
+        courseraApiService = retrofit.create(CourseraApiService.class);
     }
 
     public Call<CoursesResponse> listAllCourses() {
-        return retrofitService.listAllCourses();
+        return courseraApiService.listAllCourses();
     }
 
     @Override
     public Single<CoursesResponse> search(String query) {
-        return retrofitService.search(query);
+        return courseraApiService.search(query);
     }
 }

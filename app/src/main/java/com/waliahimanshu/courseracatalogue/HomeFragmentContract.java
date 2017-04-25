@@ -1,6 +1,6 @@
 package com.waliahimanshu.courseracatalogue;
 
-import com.waliahimanshu.courseracatalogue.Service.Courses;
+import com.waliahimanshu.courseracatalogue.Service.Response.Courses;
 
 import java.util.List;
 

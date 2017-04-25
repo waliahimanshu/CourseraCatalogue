@@ -7,7 +7,7 @@ import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.waliahimanshu.courseracatalogue.Service.Courses;
+import com.waliahimanshu.courseracatalogue.Service.Response.Courses;
 
 import java.util.List;
 import java.util.Locale;
@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 
-class HomeFragmentView implements HomeFragmentContract.View {
+public class HomeFragmentView implements HomeFragmentContract.View {
     private Context baseContext;
 
     @BindView(R.id.recycler_view)
@@ -29,7 +29,7 @@ class HomeFragmentView implements HomeFragmentContract.View {
     SearchView searchView;
 
 
-    HomeFragmentView(Context baseContext, View view) {
+   public HomeFragmentView(Context baseContext, View view) {
         this.baseContext = baseContext;
         ButterKnife.bind(this, view);
     }

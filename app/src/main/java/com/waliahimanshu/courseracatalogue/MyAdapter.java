@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.waliahimanshu.courseracatalogue.Service.Courses;
+import com.waliahimanshu.courseracatalogue.Service.Response.Courses;
 
 import java.util.Arrays;
 import java.util.List;

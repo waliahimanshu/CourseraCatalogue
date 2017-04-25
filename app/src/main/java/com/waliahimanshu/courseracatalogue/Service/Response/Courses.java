@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.Service;
+package com.waliahimanshu.courseracatalogue.Service.Response;
 
 import com.google.gson.annotations.SerializedName;
 

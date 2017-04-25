@@ -2,22 +2,25 @@ package com.waliahimanshu.courseracatalogue;
 
 import android.util.Log;
 
-import com.waliahimanshu.courseracatalogue.Service.RetrofitRestClient;
+import com.waliahimanshu.courseracatalogue.Service.CourseraApiRestClient;
 
 import java.util.concurrent.TimeUnit;
+
+import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
+public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     private static String TAG = HomeFragmentPresenter.class.getSimpleName();
     private HomeFragmentView fragmentView;
-    private RetrofitRestClient retrofitRestClient;
+    private CourseraApiRestClient retrofitRestClient;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
-    HomeFragmentPresenter(HomeFragmentView fragmentView, RetrofitRestClient retrofitRestClient) {
+    @Inject
+    public HomeFragmentPresenter(HomeFragmentView fragmentView, CourseraApiRestClient retrofitRestClient) {
         this.fragmentView = fragmentView;
         this.retrofitRestClient = retrofitRestClient;
         init();
@@ -42,7 +45,7 @@ class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     //region [Example : using Single]
 
     /*
-    Single.fromCallable(() -> new RetrofitRestClient().search(query).execute().body().courses)
+    Single.fromCallable(() -> new CourseraApiRestClient().search(query).execute().body().courses)
          .subscribeOn(Schedulers.io())
          .observeOn(AndroidSchedulers.mainThread())
          .subscribe(
@@ -68,7 +71,7 @@ class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     //region [Example using FromCallable]
 
     /*
-        Observable.fromCallable(() -> new RetrofitRestClient().search(query).execute().body().courses)
+        Observable.fromCallable(() -> new CourseraApiRestClient().search(query).execute().body().courses)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -99,7 +102,7 @@ class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     @Override
     public void unSubscribe() {
         if (disposable != null && !disposable.isDisposed()) {
-            Log.d(TAG,"Disposable unSubscribed");
+            Log.d(TAG, "Disposable unSubscribed");
             disposable.dispose();
             disposable = null;
         }
