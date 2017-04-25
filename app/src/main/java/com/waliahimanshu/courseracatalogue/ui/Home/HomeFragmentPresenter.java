@@ -1,8 +1,8 @@
-package com.waliahimanshu.courseracatalogue;
+package com.waliahimanshu.courseracatalogue.ui.Home;
 
 import android.util.Log;
 
-import com.waliahimanshu.courseracatalogue.Service.CourseraApiRestClient;
+import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,15 +14,15 @@ import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     private static String TAG = HomeFragmentPresenter.class.getSimpleName();
-    private HomeFragmentView fragmentView;
-    private CourseraApiRestClient retrofitRestClient;
+    private  HomeFragmentContract.View fragmentView;
+    private CourseraApiService courseraApiService;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
     @Inject
-    public HomeFragmentPresenter(HomeFragmentView fragmentView, CourseraApiRestClient retrofitRestClient) {
+    public HomeFragmentPresenter( HomeFragmentContract.View fragmentView, CourseraApiService courseraApiService) {
         this.fragmentView = fragmentView;
-        this.retrofitRestClient = retrofitRestClient;
+        this.courseraApiService = courseraApiService;
         init();
 
     }
@@ -33,7 +33,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
                 .debounce(500, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .observeOn(Schedulers.io())
-                .switchMap(q -> retrofitRestClient.search(q).toObservable())
+                .switchMap(q -> courseraApiService.search(q).toObservable())
                 .map(resp -> resp.courses)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(courses -> {

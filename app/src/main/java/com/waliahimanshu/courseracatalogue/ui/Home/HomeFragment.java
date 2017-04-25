@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue;
+package com.waliahimanshu.courseracatalogue.ui.Home;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,6 +10,11 @@ import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.waliahimanshu.courseracatalogue.R;
+import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
+import com.waliahimanshu.courseracatalogue.di.DaggerHomeActivityComponent;
+import com.waliahimanshu.courseracatalogue.di.HomeModule;
 
 import javax.inject.Inject;
 
@@ -28,8 +33,15 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(
             LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         ButterKnife.bind(this, view);
+
+        DaggerHomeActivityComponent.builder()
+                .courseraApiModule(new CourseraApiModule())
+                .homeModule(new HomeModule(getActivity().getBaseContext(), view))
+                .build().inject(this);
+
         setUpSearch();
 
         return view;

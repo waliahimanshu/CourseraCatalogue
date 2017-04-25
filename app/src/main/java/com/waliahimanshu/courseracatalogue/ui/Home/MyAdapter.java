@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue;
+package com.waliahimanshu.courseracatalogue.ui.Home;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.waliahimanshu.courseracatalogue.Service.Response.Courses;
+import com.waliahimanshu.courseracatalogue.R;
+import com.waliahimanshu.courseracatalogue.api.Response.Courses;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.waliahimanshu.courseracatalogue.Service;
+package com.waliahimanshu.courseracatalogue.api;
 
-import com.waliahimanshu.courseracatalogue.Service.Response.CoursesResponse;
+import com.waliahimanshu.courseracatalogue.api.Response.CoursesResponse;
 
 import io.reactivex.Single;
 import retrofit2.Call;

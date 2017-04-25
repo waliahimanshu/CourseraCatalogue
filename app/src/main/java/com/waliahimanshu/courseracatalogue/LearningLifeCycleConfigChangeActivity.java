@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.waliahimanshu.courseracatalogue.ui.Home.HomeActivity;
+
 public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
 
     public static String TAG = LearningLifeCycleConfigChangeActivity.class.getSimpleName();
