@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.Home;
+package com.waliahimanshu.courseracatalogue.ui.home;
 
 import android.app.Activity;
 import android.app.Fragment;

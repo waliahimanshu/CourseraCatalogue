@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.Home;
+package com.waliahimanshu.courseracatalogue.ui.home;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.SearchView;
