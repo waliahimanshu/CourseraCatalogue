@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.R;
@@ -29,8 +30,10 @@ public class HomeFragmentView implements HomeFragmentContract.View {
     @BindView(R.id.search_view)
     SearchView searchView;
 
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
-   public HomeFragmentView(Context baseContext, View view) {
+    public HomeFragmentView(Context baseContext, View view) {
         this.baseContext = baseContext;
         ButterKnife.bind(this, view);
     }
@@ -49,6 +52,16 @@ public class HomeFragmentView implements HomeFragmentContract.View {
     @Override
     public Observable<String> getSearchViewQueryTextChangesObservable() {
         return RxSearch.fromSearchView(searchView);
+    }
+
+    @Override
+    public void showProgressBar(boolean show) {
+        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void showError() {
+
     }
 
     private void setUpRecyclerView(List<Courses> courses) {
