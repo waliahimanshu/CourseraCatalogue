@@ -8,10 +8,5 @@ Goal : A Simple clean Coursera client App demonstrating MVP-clean, Dagger and Rx
  * [x] ButterKnife
 
 
-### To do...
-
-* [ ] Add bottom navigation.
-* [ ] Advance search options.
-
 
 
