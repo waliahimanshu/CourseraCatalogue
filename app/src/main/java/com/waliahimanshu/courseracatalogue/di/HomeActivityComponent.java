@@ -1,7 +1,7 @@
 package com.waliahimanshu.courseracatalogue.di;
 
 
-import com.waliahimanshu.courseracatalogue.ui.Home.HomeFragment;
+import com.waliahimanshu.courseracatalogue.ui.home.HomeFragment;
 
 import javax.inject.Singleton;
 

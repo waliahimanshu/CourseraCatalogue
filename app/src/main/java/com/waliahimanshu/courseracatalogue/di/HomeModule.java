@@ -3,9 +3,9 @@ package com.waliahimanshu.courseracatalogue.di;
 import android.content.Context;
 import android.view.View;
 
-import com.waliahimanshu.courseracatalogue.ui.Home.HomeFragmentContract;
-import com.waliahimanshu.courseracatalogue.ui.Home.HomeFragmentPresenter;
-import com.waliahimanshu.courseracatalogue.ui.Home.HomeFragmentView;
+import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentContract;
+import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentPresenter;
+import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentView;
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import javax.inject.Singleton;

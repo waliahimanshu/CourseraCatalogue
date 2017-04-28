@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.waliahimanshu.courseracatalogue.ui.Home.HomeActivity;
+import com.waliahimanshu.courseracatalogue.ui.home.HomeActivity;
 
 public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
 
