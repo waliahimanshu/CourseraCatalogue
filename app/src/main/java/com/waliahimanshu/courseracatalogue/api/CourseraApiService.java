@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 public interface CourseraApiService {
 
     @GET("api/courses.v1")
-    Call<CoursesResponse> listAllCourses();
+    Single<CoursesResponse> getAllCourses();
 
     /**
      * Additional query parameters which can be applied

@@ -3,9 +3,6 @@ package com.waliahimanshu.courseracatalogue.ui.home;
 import android.util.Log;
 
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
-import com.waliahimanshu.courseracatalogue.api.Response.Courses;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -34,22 +31,17 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
         disposable = fragmentView.getSearchViewQueryTextChangesObservable()
                 .debounce(500, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(x -> fragmentView.showProgressBar(true))
                 .observeOn(Schedulers.io())
-               .doOnSubscribe(x -> fragmentView.showProgressBar(true))
                 .switchMap(q -> courseraApiService.search(q).toObservable())
                 .map(resp -> resp.courses)
-//                .doFinally(() -> fragmentView.showProgressBar(false))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(courses -> {
-                    fragmentView.setApiCallTextView(noOfApiCalls++);
+                    fragmentView.setApiCallTextView(++noOfApiCalls);
                     fragmentView.initRecyclerView(courses);
+                    fragmentView.showProgressBar(false);
+
                 });
-
-    }
-
-    private void showResults(List<Courses> courses) {
-        fragmentView.setApiCallTextView(noOfApiCalls++);
-        fragmentView.initRecyclerView(courses);
     }
 
     //region [Example : using Single]

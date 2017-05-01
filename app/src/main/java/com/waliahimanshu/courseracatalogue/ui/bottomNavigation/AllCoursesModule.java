@@ -1,12 +1,12 @@
-package com.waliahimanshu.courseracatalogue.di;
+package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
 
 import android.content.Context;
 import android.view.View;
 
+import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentContract;
 import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentPresenter;
 import com.waliahimanshu.courseracatalogue.ui.home.HomeFragmentView;
-import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import javax.inject.Singleton;
 
@@ -14,25 +14,25 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class HomeModule {
+public class AllCoursesModule {
     private Context context;
     private View rootView;
 
-    public HomeModule(Context context, View rootView) {
+    public AllCoursesModule(Context context, View rootView) {
         this.context = context;
         this.rootView = rootView;
     }
 
     @Singleton
     @Provides
-    public HomeFragmentContract.View providesHomeView() {
-        return new HomeFragmentView(context, rootView);
+    public AllCoursesContract.View providesAllCoursesView() {
+        return new AllCoursesView(context, rootView);
     }
 
 
     @Provides
     @Singleton
-    public HomeFragmentContract.Presenter providesHomePresenter( HomeFragmentContract.View view, CourseraApiService courseraApiService) {
-        return new HomeFragmentPresenter(view, courseraApiService);
+    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService) {
+        return new AllCoursesPresenter(view, courseraApiService);
     }
 }

@@ -7,32 +7,29 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.SearchView
-        android:layout_marginTop="20dp"
         android:id="@+id/search_view"
         style="@style/SearchViewTheme"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
-
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/no_of_api_calls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_marginTop="10dp"
+        android:textAlignment="center"
         tools:text="API Calls : 1++" />
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp" />
 

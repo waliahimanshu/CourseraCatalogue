@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
-import com.waliahimanshu.courseracatalogue.di.DaggerHomeActivityComponent;
-import com.waliahimanshu.courseracatalogue.di.HomeModule;
 
 import javax.inject.Inject;
 

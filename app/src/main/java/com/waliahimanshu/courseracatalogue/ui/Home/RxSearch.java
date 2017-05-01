@@ -15,7 +15,7 @@ public class RxSearch {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                subject.onNext(query);
+                searchView.clearFocus();
                 return true;
             }
 
@@ -24,7 +24,9 @@ public class RxSearch {
                 if (!newText.isEmpty()) {
                     subject.onNext(newText);
                 }
+
                 return true;
+
             }
         });
 

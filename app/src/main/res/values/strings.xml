@@ -5,7 +5,7 @@
     <string name="text_three">Text Three</string>
     <string name="app_label">CourseraCatalogue</string>
     <string name="search_hint">search courses</string>
-    <string name="no_of_api_calls">NO of api calls :</string>
+    <string name="no_of_api_calls">No of api calls :</string>
     <string name="title_activity_bottom_nav">Coursera Catalogue</string>
     <string name="title_home">All Courses</string>
     <string name="title_dashboard">Search</string>

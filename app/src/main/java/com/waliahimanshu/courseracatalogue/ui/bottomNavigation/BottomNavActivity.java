@@ -16,19 +16,22 @@ public class BottomNavActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        return true;
-                    case R.id.navigation_search:
-                        Intent intent = new Intent(getBaseContext(),HomeActivity.class);
-                        startActivity(intent);
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                Intent intent = new Intent(getBaseContext(), AllCoursesActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.navigation_search:
+                Intent homeActivity = new Intent(getBaseContext(), HomeActivity.class);
+                startActivity(homeActivity);
 
-                        return true;
-                }
-                return false;
-            };
+                return true;
+        }
+        return false;
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
