@@ -11,15 +11,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
-    private static String TAG = HomeFragmentPresenter.class.getSimpleName();
-    private HomeFragmentContract.View fragmentView;
+public class SearchActivityPresenter implements SearchActivityContract.Presenter {
+    private static String TAG = SearchActivityPresenter.class.getSimpleName();
+    private SearchActivityContract.View fragmentView;
     private CourseraApiService courseraApiService;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
     @Inject
-    public HomeFragmentPresenter(HomeFragmentContract.View fragmentView, CourseraApiService courseraApiService) {
+    public SearchActivityPresenter(SearchActivityContract.View fragmentView, CourseraApiService courseraApiService) {
         this.fragmentView = fragmentView;
         this.courseraApiService = courseraApiService;
         init();

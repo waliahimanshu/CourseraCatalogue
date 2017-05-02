@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 public interface AllCoursesContract {
 
     interface Presenter {
-        void unSubscribe();
+        void getData();
 
     }
 

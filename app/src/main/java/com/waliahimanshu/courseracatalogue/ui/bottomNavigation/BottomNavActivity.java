@@ -6,7 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.ui.home.HomeActivity;
+import com.waliahimanshu.courseracatalogue.ui.home.SearchActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +25,7 @@ public class BottomNavActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.navigation_search:
-                Intent homeActivity = new Intent(getBaseContext(), HomeActivity.class);
+                Intent homeActivity = new Intent(getBaseContext(), SearchActivity.class);
                 startActivity(homeActivity);
 
                 return true;

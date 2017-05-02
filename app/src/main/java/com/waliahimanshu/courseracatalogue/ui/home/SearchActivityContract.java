@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
-public interface HomeFragmentContract {
+public interface SearchActivityContract {
 
     interface Presenter {
         void unSubscribe();

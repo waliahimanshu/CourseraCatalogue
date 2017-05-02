@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.waliahimanshu.courseracatalogue.ui.home.HomeActivity;
+import com.waliahimanshu.courseracatalogue.ui.home.SearchActivity;
 
 public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
 
@@ -46,7 +46,7 @@ public class LearningLifeCycleConfigChangeActivity extends AppCompatActivity  {
      button.setText("Clicked by View text 2");
     }
     private void startOther() {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 

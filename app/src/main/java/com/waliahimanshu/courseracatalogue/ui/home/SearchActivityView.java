@@ -3,7 +3,6 @@ package com.waliahimanshu.courseracatalogue.ui.home;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -18,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 
-public class HomeFragmentView implements HomeFragmentContract.View {
+public class SearchActivityView implements SearchActivityContract.View {
     private Context baseContext;
 
     @BindView(R.id.recycler_view)
@@ -28,12 +27,12 @@ public class HomeFragmentView implements HomeFragmentContract.View {
     TextView noOfApiCalls;
 
     @BindView(R.id.search_view)
-    SearchView searchView;
+    android.support.v7.widget.SearchView searchView;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
-    public HomeFragmentView(Context baseContext, View view) {
+    public SearchActivityView(Context baseContext, View view) {
         this.baseContext = baseContext;
         ButterKnife.bind(this, view);
     }
