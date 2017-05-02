@@ -14,15 +14,18 @@ import butterknife.ButterKnife;
 public class BottomNavActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
-    BottomNavigationView navigation;
+    BottomNavigationView navigationView;
 
+
+    AllCoursesFragment coursesFragment = new AllCoursesFragment();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                Intent intent = new Intent(getBaseContext(), AllCoursesActivity.class);
-                startActivity(intent);
+
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.container, coursesFragment, "courses").commit();
                 return true;
             case R.id.navigation_search:
                 Intent homeActivity = new Intent(getBaseContext(), SearchActivity.class);
@@ -39,7 +42,9 @@ public class BottomNavActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_nav);
 
         ButterKnife.bind(this);
+        navigationView.getMenu().getItem(0).setChecked(true);
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 }
