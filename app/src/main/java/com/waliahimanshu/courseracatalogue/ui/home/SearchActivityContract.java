@@ -21,7 +21,7 @@ public interface SearchActivityContract {
 
         void setApiCallTextView(int count);
 
-        Observable<String> getSearchViewQueryTextChangesObservable();
+        Observable<String> getSearchViewQueryTextChangeSubject();
 
         void showProgressBar(boolean show);
 

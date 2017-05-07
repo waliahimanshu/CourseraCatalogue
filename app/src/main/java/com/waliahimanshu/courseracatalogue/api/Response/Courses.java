@@ -18,9 +18,9 @@ public class Courses {
     public String name;
 
     @SerializedName("instructorIds")
-    public int[] instructorIds;
+    public String[] instructorIds;
 
     @SerializedName("partnerIds")
-    public int[] partnerIds;
+    public String [] partnerIds;
 
 }

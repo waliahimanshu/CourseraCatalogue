@@ -3,6 +3,7 @@ package com.waliahimanshu.courseracatalogue.ui.home;
 import android.util.Log;
 
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -28,7 +29,7 @@ public class SearchActivityPresenter implements SearchActivityContract.Presenter
 
     private void init() {
         Log.d(TAG, "Observable listener is registered");
-        disposable = fragmentView.getSearchViewQueryTextChangesObservable()
+        disposable = fragmentView.getSearchViewQueryTextChangeSubject()
                 .debounce(500, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(x -> fragmentView.showProgressBar(true))

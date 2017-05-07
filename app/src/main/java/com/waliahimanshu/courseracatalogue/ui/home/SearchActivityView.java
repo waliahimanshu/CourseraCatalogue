@@ -49,7 +49,7 @@ public class SearchActivityView implements SearchActivityContract.View {
     }
 
     @Override
-    public Observable<String> getSearchViewQueryTextChangesObservable() {
+    public Observable<String> getSearchViewQueryTextChangeSubject() {
         return RxSearch.fromSearchView(searchView);
     }
 

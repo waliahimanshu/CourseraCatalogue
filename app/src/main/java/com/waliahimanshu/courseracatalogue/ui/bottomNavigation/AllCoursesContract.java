@@ -4,7 +4,6 @@ import com.waliahimanshu.courseracatalogue.api.Response.Courses;
 
 import java.util.List;
 
-import io.reactivex.Observable;
 
 
 public interface AllCoursesContract {

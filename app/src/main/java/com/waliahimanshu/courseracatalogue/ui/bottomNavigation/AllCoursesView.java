@@ -14,7 +14,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observable;
 
 public class AllCoursesView implements AllCoursesContract.View {
 
