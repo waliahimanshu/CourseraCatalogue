@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.ui.home.SearchActivity;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -15,7 +17,6 @@ public class BottomNavActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigationView;
-
 
     AllCoursesFragment coursesFragment = new AllCoursesFragment();
 
@@ -35,6 +36,13 @@ public class BottomNavActivity extends AppCompatActivity {
         }
         return false;
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.container, coursesFragment, "courses").commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
