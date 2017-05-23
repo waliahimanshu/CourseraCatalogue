@@ -6,9 +6,7 @@ import android.view.View;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesPresenter;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesView;
-import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityContract;
 import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityPresenter;
-import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityView;
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import javax.inject.Singleton;
@@ -26,16 +24,12 @@ public class ActivityModule {
         this.rootView = rootView;
     }
 
-    @Singleton
-    @Provides
-    public SearchActivityContract.View providesHomeView() {
-        return new SearchActivityView(context, rootView);
-    }
+
 
 
     @Provides
     @Singleton
-    public SearchActivityContract.Presenter providesHomePresenter(SearchActivityContract.View view,
+    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
                                                                   CourseraApiService courseraApiService) {
         return new SearchActivityPresenter(view, courseraApiService);
     }

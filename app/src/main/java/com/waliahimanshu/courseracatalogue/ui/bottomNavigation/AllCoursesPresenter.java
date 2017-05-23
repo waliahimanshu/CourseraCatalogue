@@ -28,9 +28,7 @@ public class AllCoursesPresenter implements AllCoursesContract.Presenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(coursesResponse -> coursesResponse.courses)
-                .subscribe(courses -> {
-                            view.initRecyclerView(courses);
-                        }
+                .subscribe(courses -> view.initRecyclerView(courses)
                 );
 
     }

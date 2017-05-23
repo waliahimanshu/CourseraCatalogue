@@ -1,13 +1,13 @@
 package com.waliahimanshu.courseracatalogue.ui.home;
 
 import android.support.annotation.NonNull;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 
-class RxSearch {
-    static Observable<String> fromSearchView(@NonNull final SearchView searchView) {
+public class RxSearch {
+    public static Observable<String> fromSearchView(@NonNull final SearchView searchView) {
         final BehaviorSubject<String> subject = BehaviorSubject.create();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

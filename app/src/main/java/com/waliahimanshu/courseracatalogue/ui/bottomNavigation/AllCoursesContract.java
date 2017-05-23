@@ -4,8 +4,6 @@ import com.waliahimanshu.courseracatalogue.api.Response.Courses;
 
 import java.util.List;
 
-
-
 public interface AllCoursesContract {
 
     interface Presenter {
@@ -19,5 +17,7 @@ public interface AllCoursesContract {
         void showProgressBar(boolean show);
 
         void showError();
+
+        void setApiCallTextView(int i);
     }
 }
