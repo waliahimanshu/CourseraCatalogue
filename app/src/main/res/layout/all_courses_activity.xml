@@ -7,16 +7,28 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.SearchView
-        android:layout_margin="8dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_blue_500"
-        app:iconifiedByDefault="true"
+        android:layout_height="100dp"
+        android:background="@color/teal_500"
+        android:orientation="vertical">
 
-        app:queryHint="Search stuff">
 
-    </android.support.v7.widget.SearchView>
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/search_view_widget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_searchBarMarginLeft="4dp"
+            app:floatingSearch_searchBarMarginRight="4dp"
+            app:floatingSearch_searchBarMarginTop="4dp"
+            app:floatingSearch_searchHint="Search Courses"
+            app:floatingSearch_showSearchKey="false"
+            app:floatingSearch_showVoiceInput="true"
+            app:floatingSearch_suggestionsListAnimDuration="250" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"

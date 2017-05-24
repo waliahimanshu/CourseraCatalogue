@@ -2,11 +2,6 @@ package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
 
 
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
@@ -37,16 +32,5 @@ public class AllCoursesActivity extends BaseActivity {
         presenter.getData();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_item, menu);
-//
-//        MenuItem searchItem = menu.findItem(R.id.menu_search_item);
-//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-//
-//        searchView.setIconifiedByDefault(false);
-        return super.onCreateOptionsMenu(menu);
-    }
 }
 

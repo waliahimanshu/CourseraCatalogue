@@ -3,6 +3,7 @@ package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,8 @@ public class AllCoursesFragment extends BaseFragment {
     @Inject
     SearchActivityPresenter searchActivityPresenter;
 
-    @BindView(R.id.menu_search_item)
-    android.widget.SearchView searchView;
+    @BindView(R.id.search_view_widget)
+    SearchView searchView;
 
     @Nullable
     @Override
