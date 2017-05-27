@@ -1,7 +1,7 @@
 package com.waliahimanshu.courseracatalogue.ui.home;
 
 import android.support.annotation.NonNull;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;

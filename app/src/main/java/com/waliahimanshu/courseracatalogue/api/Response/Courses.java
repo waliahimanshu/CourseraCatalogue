@@ -2,6 +2,7 @@ package com.waliahimanshu.courseracatalogue.api.Response;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
 public class Courses {
 
@@ -18,9 +19,8 @@ public class Courses {
     public String name;
 
     @SerializedName("instructorIds")
-    public String[] instructorIds;
+    public List<String > instructorIds;
 
     @SerializedName("partnerIds")
-    public String [] partnerIds;
-
+    public List<String> partnerIds;
 }

@@ -2,15 +2,15 @@ package com.waliahimanshu.courseracatalogue.ui.home;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.api.Response.Courses;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -19,10 +19,8 @@ import butterknife.ButterKnife;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
   private final LayoutInflater layoutInflater;
-  private List<Courses> courses;
-  private String TAG = MyAdapter.class.getSimpleName();
-
-  public MyAdapter(Context context, List<Courses> courses) {
+  private List<CourseDetailsDomain> courses;
+  public MyAdapter(Context context, List<CourseDetailsDomain> courses) {
     layoutInflater = LayoutInflater.from(context);
     this.courses = courses;
   }
@@ -35,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
   @Override
   public void onBindViewHolder(MyViewHolder holder, int position) {
-    Courses currentObject = courses.get(position);
+    CourseDetailsDomain currentObject = courses.get(position);
     holder.setData(currentObject);
   }
 
@@ -60,10 +58,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
       ButterKnife.bind(this, itemView);
     }
 
-    void setData(Courses currentObject) {
+    void setData(CourseDetailsDomain currentObject) {
       courseName.setText(currentObject.name);
-      instructorName.setText(Arrays.toString(currentObject.instructorIds));
-      partnerName.setText(Arrays.toString(currentObject.partnerIds));
+
+      ArrayList<String> strings = new ArrayList<>();
+      for (MoreInfoDomain moreInfoDomain : currentObject.instructorName) {
+        strings.add(moreInfoDomain.name);
+      }
+      instructorName.setText(TextUtils.join(",",strings));
+
+      ArrayList<String> partner = new ArrayList<>();
+      for (MoreInfoDomain moreInfoDomain : currentObject.partnerName) {
+        partner.add(moreInfoDomain.name);
+      }
+      partnerName.setText(TextUtils.join(",",partner));
     }
   }
 }

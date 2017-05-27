@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="separator_line">#ECECEC</color>
+    <color name="title">#222222</color>
+    <color name="subtitle">#999999</color>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -279,11 +284,6 @@
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-
-    <!-- Colors for the app -->
-    <color name="primary">@color/indigo_500</color>
-    <color name="primary_dark">@color/indigo_700</color>
-    <color name="accent">@color/pink_A200</color>
 
     <!--Light Background Dark Text-->
     <color name="light_bg_dark_primary_text">#DE000000</color>

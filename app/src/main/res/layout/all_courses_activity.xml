@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/teal_500"
+        android:background="@color/light_blue_500"
         android:orientation="vertical">
 
 
@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textAlignment="center"
+        android:visibility="gone"
         tools:text="API Calls : 1++" />
 
     <android.support.v7.widget.RecyclerView

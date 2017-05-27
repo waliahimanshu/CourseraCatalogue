@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesContract;
+import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.ResponseMapper;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,21 +13,21 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class SearchActivityPresenter  {
+public class SearchActivityPresenter {
     private static String TAG = SearchActivityPresenter.class.getSimpleName();
     private AllCoursesContract.View view;
     private CourseraApiService courseraApiService;
+    private ResponseMapper responseMapper;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
     @Inject
-    public SearchActivityPresenter(AllCoursesContract.View view, CourseraApiService courseraApiService) {
+    public SearchActivityPresenter(AllCoursesContract.View view, CourseraApiService courseraApiService, ResponseMapper responseMapper) {
         this.view = view;
         this.courseraApiService = courseraApiService;
-
+        this.responseMapper = responseMapper;
     }
 
     public void init(Observable<String> stringObservable) {
@@ -37,11 +38,11 @@ public class SearchActivityPresenter  {
                 .doOnNext(x -> view.showProgressBar(true))
                 .observeOn(Schedulers.io())
                 .switchMap(q -> courseraApiService.search(q).toObservable())
-                .map(resp -> resp.courses)
+                .map(responseMapper)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(throwable -> {
                     String message = throwable.getMessage();
-                    Log.e("Critical error",message);
+                    Log.e("Critical error", message);
                 })
                 .subscribe(courses -> {
                     view.setApiCallTextView(++noOfApiCalls);

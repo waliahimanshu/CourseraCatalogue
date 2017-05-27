@@ -1,6 +1,6 @@
 package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
 
-import com.waliahimanshu.courseracatalogue.api.Response.Courses;
+import com.waliahimanshu.courseracatalogue.ui.home.CourseDetailsDomain;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface AllCoursesContract {
     }
 
     interface View {
-        void initRecyclerView(List<Courses> courses);
+        void initRecyclerView(List<CourseDetailsDomain> courses);
 
         void showProgressBar(boolean show);
 

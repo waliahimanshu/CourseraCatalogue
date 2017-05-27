@@ -9,12 +9,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="24sp"
+            android:textSize="18sp"
+            android:textColor="@color/title"
             tools:text="Course Name" />
 
         <TextView
@@ -22,7 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/subtitle"
             tools:text="Instructor name" />
 
         <TextView
@@ -30,13 +33,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/subtitle"
             tools:text="Partner name" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/blue_400" />
+            android:background="@color/light_blue_100" />
 
     </LinearLayout>
 

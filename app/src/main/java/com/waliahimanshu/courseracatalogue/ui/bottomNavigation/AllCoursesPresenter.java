@@ -13,12 +13,14 @@ public class AllCoursesPresenter implements AllCoursesContract.Presenter {
 
     private CourseraApiService apiService;
     private AllCoursesContract.View view;
+    private ResponseMapper responseMapper;
 
     @Inject
-    public AllCoursesPresenter(AllCoursesContract.View view, CourseraApiService apiService) {
+    public AllCoursesPresenter(AllCoursesContract.View view, CourseraApiService apiService, ResponseMapper responseMapper) {
         this.apiService = apiService;
         this.view = view;
 
+        this.responseMapper = responseMapper;
     }
 
     @Override
@@ -27,10 +29,12 @@ public class AllCoursesPresenter implements AllCoursesContract.Presenter {
         apiService.getAllCourses()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(coursesResponse -> coursesResponse.courses)
-                .subscribe(courses -> view.initRecyclerView(courses)
-                );
+                .map(responseMapper)
+                .subscribe(courseDetailsDomains -> view.initRecyclerView(courseDetailsDomains));
+
 
     }
+
+
 }
 

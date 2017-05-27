@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Instructors {
 
-    @SerializedName("name")
+    @SerializedName("fullName")
     public String name;
     @SerializedName("id")
     public String id;

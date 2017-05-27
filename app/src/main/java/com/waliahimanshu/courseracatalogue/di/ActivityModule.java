@@ -6,6 +6,9 @@ import android.view.View;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesPresenter;
 import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesView;
+import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.LinkedInstructorMapper;
+import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.LinkedPartnersMapper;
+import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.ResponseMapper;
 import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityPresenter;
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
@@ -30,8 +33,8 @@ public class ActivityModule {
     @Provides
     @Singleton
     public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
-                                                                  CourseraApiService courseraApiService) {
-        return new SearchActivityPresenter(view, courseraApiService);
+                                                                  CourseraApiService courseraApiService, ResponseMapper responseMapper) {
+        return new SearchActivityPresenter(view, courseraApiService, responseMapper);
     }
 
     @Singleton
@@ -40,10 +43,15 @@ public class ActivityModule {
         return new AllCoursesView(context, rootView);
     }
 
+    @Singleton
+    @Provides
+    public ResponseMapper providesResponseMapper() {
+        return new ResponseMapper(new LinkedInstructorMapper(), new LinkedPartnersMapper());
+    }
 
     @Provides
     @Singleton
-    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService) {
-        return new AllCoursesPresenter(view, courseraApiService);
+    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService, ResponseMapper responseMapper) {
+        return new AllCoursesPresenter(view, courseraApiService, responseMapper);
     }
 }

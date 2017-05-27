@@ -15,9 +15,7 @@ import dagger.Component;
 
 public interface ActivityComponent {
 
-
     void inject(AllCoursesActivity coursesActivity);
 
     void inject(AllCoursesFragment allCoursesFragment);
-
 }
