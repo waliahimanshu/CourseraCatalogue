@@ -1,8 +1,8 @@
 package com.waliahimanshu.courseracatalogue.di;
 
 
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesActivity;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesFragment;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesActivity;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesFragment;
 
 import javax.inject.Singleton;
 

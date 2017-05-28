@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 
 import android.os.Bundle;

@@ -3,13 +3,13 @@ package com.waliahimanshu.courseracatalogue.di;
 import android.content.Context;
 import android.view.View;
 
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesContract;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesPresenter;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.AllCoursesView;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.LinkedInstructorMapper;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.LinkedPartnersMapper;
-import com.waliahimanshu.courseracatalogue.ui.bottomNavigation.ResponseMapper;
-import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityPresenter;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesPresenter;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesView;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedInstructorMapper;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedPartnersMapper;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
+import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
 import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import javax.inject.Singleton;
@@ -27,13 +27,10 @@ public class ActivityModule {
         this.rootView = rootView;
     }
 
-
-
-
     @Provides
     @Singleton
     public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
-                                                                  CourseraApiService courseraApiService, ResponseMapper responseMapper) {
+                                                                  CourseraApiService courseraApiService, CoursesDetailDomainMapper responseMapper) {
         return new SearchActivityPresenter(view, courseraApiService, responseMapper);
     }
 
@@ -45,13 +42,13 @@ public class ActivityModule {
 
     @Singleton
     @Provides
-    public ResponseMapper providesResponseMapper() {
-        return new ResponseMapper(new LinkedInstructorMapper(), new LinkedPartnersMapper());
+    public CoursesDetailDomainMapper providesResponseMapper() {
+        return new CoursesDetailDomainMapper(new LinkedInstructorMapper(), new LinkedPartnersMapper());
     }
 
     @Provides
     @Singleton
-    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService, ResponseMapper responseMapper) {
+    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService, CoursesDetailDomainMapper responseMapper) {
         return new AllCoursesPresenter(view, courseraApiService, responseMapper);
     }
 }

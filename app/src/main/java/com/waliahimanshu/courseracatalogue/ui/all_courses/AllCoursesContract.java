@@ -1,6 +1,6 @@
-package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
-import com.waliahimanshu.courseracatalogue.ui.home.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
 
 import java.util.List;
 

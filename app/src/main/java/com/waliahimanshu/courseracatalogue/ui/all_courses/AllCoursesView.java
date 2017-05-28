@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 
 import android.content.Context;
@@ -9,8 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.ui.home.CourseDetailsDomain;
-import com.waliahimanshu.courseracatalogue.ui.home.MyAdapter;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
 
 import java.util.List;
 import java.util.Locale;
@@ -42,8 +41,7 @@ public class AllCoursesView implements AllCoursesContract.View {
 
     @Override
     public void initRecyclerView(List<CourseDetailsDomain> courses) {
-
-        MyAdapter adapter = new MyAdapter(context, courses);
+        CoursesInfoAdapter adapter = new CoursesInfoAdapter(context, courses);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

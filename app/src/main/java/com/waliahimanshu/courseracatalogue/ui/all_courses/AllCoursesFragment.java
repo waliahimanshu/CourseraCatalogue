@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.waliahimanshu.courseracatalogue.di.ActivityModule;
 import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
 import com.waliahimanshu.courseracatalogue.di.DaggerActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseFragment;
-import com.waliahimanshu.courseracatalogue.ui.home.SearchActivityPresenter;
+import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
 
 import javax.inject.Inject;
 
