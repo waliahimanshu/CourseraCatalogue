@@ -67,26 +67,22 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
         }
 
         void setData(CourseDetailsDomain currentObject) {
-            courseName.setText(currentObject.name);
+            courseName.setText(currentObject.getName());
 
             ArrayList<String> strings = new ArrayList<>();
-            for (InfoDomain moreInfoDomain : currentObject.instructorName) {
-                strings.add(moreInfoDomain.name);
+            for (InfoDomain moreInfoDomain : currentObject.getInstructorName()) {
+                strings.add(moreInfoDomain.getName());
             }
             instructorName.setText(TextUtils.join(",", strings));
 
             ArrayList<String> partner = new ArrayList<>();
-            for (InfoDomain moreInfoDomain : currentObject.partnerName) {
-                partner.add(moreInfoDomain.name);
+            for (InfoDomain moreInfoDomain : currentObject.getPartnerName()) {
+                partner.add(moreInfoDomain.getName());
             }
             partnerName.setText(TextUtils.join(",", partner));
 
-
-//      DownloadImageTask imageTask = new DownloadImageTask(courseLogo);
-//      imageTask.execute(currentObject.photoUrl);
-
             Picasso.with(itemView.getContext())
-                    .load(currentObject.photoUrl)
+                    .load(currentObject.getPhotoUrl())
                     .placeholder(R.drawable.avatar_jen)
                     .error(R.drawable.avatar_moss)
                     .into(courseLogo);

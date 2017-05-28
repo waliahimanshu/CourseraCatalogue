@@ -40,10 +40,10 @@ public class CoursesDetailDomainMapperTest {
         Courses actual = fixtCourseraResponse.courses.get(0);
         CourseDetailsDomain expectedDomain = expected.get(0);
 
-        assertThat(actual.courseType, is(expectedDomain.courseType));
-        assertThat(actual.id, is(expectedDomain.id));
-        assertThat(actual.name, is(expectedDomain.name));
-        assertThat(actual.slug, is(expectedDomain.slug));
+        assertThat(actual.courseType, is(expectedDomain.getCourseType()));
+        assertThat(actual.id, is(expectedDomain.getId()));
+        assertThat(actual.name, is(expectedDomain.getName()));
+        assertThat(actual.slug, is(expectedDomain.getSlug()));
     }
 
 
@@ -56,7 +56,7 @@ public class CoursesDetailDomainMapperTest {
 
         CourseDetailsDomain expectedDomain = expected.get(0);
 
-        assertThat("abcd", is(expectedDomain.instructorName.get(0).name));
+        assertThat("abcd", is(expectedDomain.getInstructorName().get(0).getName()));
     }
 
     @Test
@@ -68,6 +68,6 @@ public class CoursesDetailDomainMapperTest {
 
         CourseDetailsDomain expectedDomain = expected.get(0);
 
-        assertThat("abcd", is(expectedDomain.partnerName.get(0).name));
+        assertThat("abcd", is(expectedDomain.getPartnerName().get(0).getName()));
     }
 }
