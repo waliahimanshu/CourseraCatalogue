@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.home;
+package com.waliahimanshu.courseracatalogue.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,12 +12,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by waliahimanshu.
+ * This is opening a url socket on background thread,
+ * but this holds reference to view which holds context
+ * which may cause memory leak.
  */
+public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
-public class DownloadImageTask extends AsyncTask<String,Void,Bitmap> {
     private ImageView courseLogo;
-    private HttpURLConnection urlcon;
+    private HttpURLConnection urlIcon;
     private InputStream in;
 
     public DownloadImageTask(ImageView courseLogo) {
@@ -28,25 +30,23 @@ public class DownloadImageTask extends AsyncTask<String,Void,Bitmap> {
     protected Bitmap doInBackground(String... strings) {
         try {
             URL url = new URL(strings[0]);
-            urlcon = (HttpURLConnection) url.openConnection();
-            urlcon.setDoInput(true);
-            urlcon.connect();
-            in = urlcon.getInputStream();
-            Bitmap mIcon = BitmapFactory.decodeStream(in);
-            return mIcon;
+            urlIcon = (HttpURLConnection) url.openConnection();
+            urlIcon.setDoInput(true);
+            urlIcon.connect();
+            in = urlIcon.getInputStream();
+            return BitmapFactory.decodeStream(in);
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
-            return null;
-        }
-        finally {
-            urlcon.disconnect();
+        } finally {
+            urlIcon.disconnect();
             try {
                 in.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        return null;
     }
 
     @Override

@@ -1,10 +1,10 @@
-package com.waliahimanshu.courseracatalogue.ui.bottomNavigation;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 import com.flextrade.jfixture.FixtureAnnotations;
 import com.flextrade.jfixture.annotations.Fixture;
-import com.waliahimanshu.courseracatalogue.api.Response.Courses;
-import com.waliahimanshu.courseracatalogue.api.Response.CoursesResponse;
-import com.waliahimanshu.courseracatalogue.ui.home.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.api.response_dto.Courses;
+import com.waliahimanshu.courseracatalogue.api.response_dto.CoursesResponse;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +18,9 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by waliahimanshu.
  */
-public class ResponseMapperTest {
+public class CoursesDetailDomainMapperTest {
 
-    private ResponseMapper sut;
+    private CoursesDetailDomainMapper sut;
 
     @Fixture private CoursesResponse fixtCourseraResponse;
     @Mock private LinkedPartnersMapper mockPartnerMapper;
@@ -29,7 +29,7 @@ public class ResponseMapperTest {
     @Before
     public void setUp() throws Exception {
         FixtureAnnotations.initFixtures(this);
-        sut = new ResponseMapper(mockInstructorMapper,mockPartnerMapper);
+        sut = new CoursesDetailDomainMapper(mockInstructorMapper,mockPartnerMapper);
 
     }
 

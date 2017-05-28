@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.home;
+package com.waliahimanshu.courseracatalogue.ui.search;
 
 import org.junit.Test;
 

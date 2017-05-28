@@ -1,11 +1,8 @@
-package com.waliahimanshu.courseracatalogue.ui.home;
+package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,25 +11,21 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.waliahimanshu.courseracatalogue.R;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.InfoDomain;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observable;
-import io.reactivex.Single;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.MyViewHolder> {
 
     private final LayoutInflater layoutInflater;
     private List<CourseDetailsDomain> courses;
 
-    public MyAdapter(Context context, List<CourseDetailsDomain> courses) {
+    public CoursesInfoAdapter(Context context, List<CourseDetailsDomain> courses) {
         layoutInflater = LayoutInflater.from(context);
         this.courses = courses;
     }
@@ -77,13 +70,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             courseName.setText(currentObject.name);
 
             ArrayList<String> strings = new ArrayList<>();
-            for (MoreInfoDomain moreInfoDomain : currentObject.instructorName) {
+            for (InfoDomain moreInfoDomain : currentObject.instructorName) {
                 strings.add(moreInfoDomain.name);
             }
             instructorName.setText(TextUtils.join(",", strings));
 
             ArrayList<String> partner = new ArrayList<>();
-            for (MoreInfoDomain moreInfoDomain : currentObject.partnerName) {
+            for (InfoDomain moreInfoDomain : currentObject.partnerName) {
                 partner.add(moreInfoDomain.name);
             }
             partnerName.setText(TextUtils.join(",", partner));
