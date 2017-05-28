@@ -83,7 +83,7 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
 
             Picasso.with(itemView.getContext())
                     .load(currentObject.getPhotoUrl())
-                    .placeholder(R.drawable.avatar_jen)
+                    .placeholder(R.drawable.default_image)
                     .error(R.drawable.avatar_moss)
                     .into(courseLogo);
         }

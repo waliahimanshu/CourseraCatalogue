@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 
 public interface CourseraApiService {
 
-    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,photoUrl")
+    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,partnerLogo,photoUrl,description,primaryLanguages,subtitleLanguages,certificates,startDate,workload,previewLink,specializations,s12nlds,domainTypes,categories")
     Single<CoursesResponse> getAllCourses();
 
     /**
