@@ -8,6 +8,7 @@ import com.waliahimanshu.courseracatalogue.ui.home.CourseDetailsDomain;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.util.List;
 
@@ -21,13 +22,14 @@ public class ResponseMapperTest {
 
     private ResponseMapper sut;
 
-    @Fixture
-    private CoursesResponse fixtCourseraResponse;
+    @Fixture private CoursesResponse fixtCourseraResponse;
+    @Mock private LinkedPartnersMapper mockPartnerMapper;
+    @Mock private LinkedInstructorMapper mockInstructorMapper;
 
     @Before
     public void setUp() throws Exception {
         FixtureAnnotations.initFixtures(this);
-        sut = new ResponseMapper();
+        sut = new ResponseMapper(mockInstructorMapper,mockPartnerMapper);
 
     }
 

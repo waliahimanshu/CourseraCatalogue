@@ -18,6 +18,9 @@ public class Courses {
     @SerializedName("name")
     public String name;
 
+    @SerializedName("photoUrl")
+    public String photoUrl;
+
     @SerializedName("instructorIds")
     public List<String > instructorIds;
 

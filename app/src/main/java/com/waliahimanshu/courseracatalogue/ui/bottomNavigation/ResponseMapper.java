@@ -38,6 +38,7 @@ public class ResponseMapper implements Function<CoursesResponse, List<CourseDeta
                     course.courseType,
                     course.name,
                     course.slug,
+                    course.photoUrl,
                     parternsId,
                     instructorIds);
             courseDetailsDomains.add(detailsDomain);
