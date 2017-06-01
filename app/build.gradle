@@ -77,8 +77,13 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
 
-    compile 'com.github.arimorty:floatingsearchview:2.0.4'
+    //add this only for debug
+    compile 'com.squareup.retrofit2:retrofit-mock:2.2.0'
+    compile 'com.flextrade.jfixture:jfixture:2.7.0'
 
+
+
+    compile 'com.github.arimorty:floatingsearchview:2.0.4'
 
     //Butterknife
     compile 'com.jakewharton:butterknife:8.5.1'

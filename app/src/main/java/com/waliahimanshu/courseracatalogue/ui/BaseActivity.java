@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
+import com.waliahimanshu.courseracatalogue.api.DebugCourseraApiModule;
+import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.di.ActivityModule;
-import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
-import com.waliahimanshu.courseracatalogue.di.DaggerActivityComponent;
+import com.waliahimanshu.courseracatalogue.di.DaggerTestActivityComponent;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -23,17 +23,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         View view = getWindow().getDecorView();
 
         activityModule = new ActivityModule(getBaseContext(), view);
-        ActivityComponent activityComponent = DaggerActivityComponent.builder()
-                .courseraApiModule(new CourseraApiModule())
+//        ActivityComponent activityComponent = DaggerActivityComponent.builder()
+//                .courseraApiModule(new CourseraApiModule())
+//                .activityModule(activityModule)
+//                .build();
+//
+        TestActivityComponent activityComponent = DaggerTestActivityComponent.builder()
+                .debugCourseraApiModule(new DebugCourseraApiModule())
                 .activityModule(activityModule)
                 .build();
+
+
 
         injectFrom(activityComponent);
         setupActivity(savedInstanceState);
 
     }
 
-    protected abstract void injectFrom(ActivityComponent activityComponent);
+    protected abstract void injectFrom(TestActivityComponent activityComponent);
 
     protected abstract int getLayoutId();
 

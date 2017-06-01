@@ -3,6 +3,7 @@ package com.waliahimanshu.courseracatalogue.di;
 import android.content.Context;
 import android.view.View;
 
+import com.waliahimanshu.courseracatalogue.api.CourseraService;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesPresenter;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesView;
@@ -10,7 +11,6 @@ import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedInstructorMapper
 import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedPartnersMapper;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
 import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
-import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
 
 import javax.inject.Singleton;
 
@@ -27,12 +27,12 @@ public class ActivityModule {
         this.rootView = rootView;
     }
 
-    @Provides
-    @Singleton
-    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
-                                                                  CourseraApiService courseraApiService, CoursesDetailDomainMapper responseMapper) {
-        return new SearchActivityPresenter(view, courseraApiService, responseMapper);
-    }
+//    @Provides
+//    @Singleton
+//    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
+//                                                                   CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
+//        return new SearchActivityPresenter(view, courseraService, responseMapper);
+//    }
 
     @Singleton
     @Provides
@@ -48,7 +48,7 @@ public class ActivityModule {
 
     @Provides
     @Singleton
-    public AllCoursesContract.Presenter providesAllActivityPresenter( AllCoursesContract.View view, CourseraApiService courseraApiService, CoursesDetailDomainMapper responseMapper) {
-        return new AllCoursesPresenter(view, courseraApiService, responseMapper);
+    public AllCoursesContract.Presenter providesAllActivityPresenter(AllCoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
+        return new AllCoursesPresenter(view, courseraService, responseMapper);
     }
 }

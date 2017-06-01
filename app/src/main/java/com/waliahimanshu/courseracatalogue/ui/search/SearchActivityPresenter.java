@@ -2,7 +2,7 @@ package com.waliahimanshu.courseracatalogue.ui.search;
 
 import android.util.Log;
 
-import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
+import com.waliahimanshu.courseracatalogue.api.CourseraService;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
 
@@ -18,15 +18,15 @@ import io.reactivex.schedulers.Schedulers;
 public class SearchActivityPresenter {
     private static String TAG = SearchActivityPresenter.class.getSimpleName();
     private AllCoursesContract.View view;
-    private CourseraApiService courseraApiService;
+    private CourseraService courseraService;
     private CoursesDetailDomainMapper responseMapper;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
     @Inject
-    public SearchActivityPresenter(AllCoursesContract.View view, CourseraApiService courseraApiService, CoursesDetailDomainMapper responseMapper) {
+    public SearchActivityPresenter(AllCoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
         this.view = view;
-        this.courseraApiService = courseraApiService;
+        this.courseraService = courseraService;
         this.responseMapper = responseMapper;
     }
 
@@ -37,7 +37,7 @@ public class SearchActivityPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(x -> view.showProgressBar(true))
                 .observeOn(Schedulers.io())
-                .switchMap(q -> courseraApiService.search(q).toObservable())
+                .switchMap(q -> courseraService.search(q).toObservable())
                 .map(responseMapper)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(throwable -> {

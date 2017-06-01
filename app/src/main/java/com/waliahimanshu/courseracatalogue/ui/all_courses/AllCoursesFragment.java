@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
-import com.waliahimanshu.courseracatalogue.di.ActivityModule;
-import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
-import com.waliahimanshu.courseracatalogue.di.DaggerActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseFragment;
 import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
 
@@ -22,7 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AllCoursesFragment extends BaseFragment {
-
 
     @Inject
     AllCoursesPresenter presenter;
@@ -36,20 +32,10 @@ public class AllCoursesFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(getFragmentId(), container, false);
         ButterKnife.bind(this, view);
-
-        activityModule = new ActivityModule(getContext(), view);
-        ActivityComponent activityComponent = DaggerActivityComponent.builder()
-                .courseraApiModule(new CourseraApiModule())
-                .activityModule(activityModule)
-                .build();
-        injectFrom(activityComponent);
         setUpFragment();
-
         return view;
-
     }
 
     @Override

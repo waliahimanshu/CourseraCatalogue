@@ -1,7 +1,7 @@
 package com.waliahimanshu.courseracatalogue.di;
 
 import com.waliahimanshu.courseracatalogue.BuildConfig;
-import com.waliahimanshu.courseracatalogue.api.CourseraApiService;
+import com.waliahimanshu.courseracatalogue.api.CourseraService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -48,7 +48,7 @@ public class CourseraApiModule {
 
     @Provides
     @Singleton
-    public CourseraApiService provideCourseraApiService(Retrofit restAdapter) {
-        return restAdapter.create(CourseraApiService.class);
+    public CourseraService provideCourseraApiService(Retrofit restAdapter) {
+        return restAdapter.create(CourseraService.class);
     }
 }

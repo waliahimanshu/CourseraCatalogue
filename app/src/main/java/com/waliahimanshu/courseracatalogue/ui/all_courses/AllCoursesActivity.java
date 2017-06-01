@@ -1,13 +1,10 @@
 package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
+import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseActivity;
 
 import javax.inject.Inject;
@@ -20,7 +17,7 @@ public class AllCoursesActivity extends BaseActivity {
     AllCoursesPresenter presenter;
 
     @Override
-    protected void injectFrom(ActivityComponent activityComponent) {
+    protected void injectFrom(TestActivityComponent activityComponent) {
         activityComponent.inject(this);
     }
 
