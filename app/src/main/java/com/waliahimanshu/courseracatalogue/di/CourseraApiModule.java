@@ -1,5 +1,6 @@
 package com.waliahimanshu.courseracatalogue.di;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.waliahimanshu.courseracatalogue.BuildConfig;
 import com.waliahimanshu.courseracatalogue.api.CourseraService;
 
@@ -28,6 +29,7 @@ public class CourseraApiModule {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(logging);
+            builder.addInterceptor(new StethoInterceptor());
         }
 
         builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)

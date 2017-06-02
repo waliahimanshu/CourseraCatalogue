@@ -43,6 +43,11 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
     public int getItemCount() {
         return courses.size();
     }

@@ -1,5 +1,6 @@
 package com.waliahimanshu.courseracatalogue.api;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.waliahimanshu.courseracatalogue.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
@@ -33,6 +34,8 @@ public class DebugCourseraApiModule {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(logging);
+            builder.addInterceptor(new StethoInterceptor());
+
         }
 
         builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
