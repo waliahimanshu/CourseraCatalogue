@@ -7,9 +7,9 @@ import com.waliahimanshu.courseracatalogue.api.CourseraService;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesPresenter;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesView;
+import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedInstructorMapper;
 import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedPartnersMapper;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
 import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
 
 import javax.inject.Singleton;
@@ -27,12 +27,12 @@ public class ActivityModule {
         this.rootView = rootView;
     }
 
-//    @Provides
-//    @Singleton
-//    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
-//                                                                   CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
-//        return new SearchActivityPresenter(view, courseraService, responseMapper);
-//    }
+    @Provides
+    @Singleton
+    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
+                                                                   CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
+        return new SearchActivityPresenter(view, courseraService, responseMapper);
+    }
 
     @Singleton
     @Provides

@@ -6,10 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.waliahimanshu.courseracatalogue.api.DebugCourseraApiModule;
-import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.di.ActivityModule;
-import com.waliahimanshu.courseracatalogue.di.DaggerTestActivityComponent;
+import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -28,14 +26,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 //                .activityModule(activityModule)
 //                .build();
 //
-        TestActivityComponent activityComponent = DaggerTestActivityComponent.builder()
-                .debugCourseraApiModule(new DebugCourseraApiModule())
-                .activityModule(activityModule)
-                .build();
 
-
-
-        injectFrom(activityComponent);
+//        injectFrom(activityComponent);
         setupActivity(savedInstanceState);
 
     }

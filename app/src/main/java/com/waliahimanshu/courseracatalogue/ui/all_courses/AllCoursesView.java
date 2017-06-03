@@ -23,17 +23,12 @@ public class AllCoursesView implements AllCoursesContract.View {
     RecyclerView recyclerView;
 
 
-    @BindView(R.id.no_of_api_calls)
-    TextView noOfApiCalls;
-
-
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
     private Context context;
 
     public AllCoursesView(Context context, View rootView) {
-
         this.context = context;
         ButterKnife.bind(this, rootView);
 
@@ -51,8 +46,6 @@ public class AllCoursesView implements AllCoursesContract.View {
 
     @Override
     public void setApiCallTextView(int count) {
-        noOfApiCalls.setText(String.format(Locale.getDefault(),
-                "%s%d", context.getString(R.string.no_of_api_calls), count));
     }
 
     @Override

@@ -13,11 +13,11 @@
         android:background="@color/light_blue_500"
         android:orientation="vertical">
 
-
         <com.arlib.floatingsearchview.FloatingSearchView
             android:id="@+id/search_view_widget"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
             app:floatingSearch_close_search_on_keyboard_dismiss="true"
             app:floatingSearch_leftActionMode="showHamburger"
             app:floatingSearch_searchBarMarginLeft="4dp"
@@ -28,26 +28,22 @@
             app:floatingSearch_showVoiceInput="true"
             app:floatingSearch_suggestionsListAnimDuration="250" />
 
+
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        app:tabMode="fixed" />
 
-    <TextView
-        android:id="@+id/no_of_api_calls"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:visibility="gone"
-        tools:text="API Calls : 1++" />
+        android:layout_height="wrap_content">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    </android.support.v4.view.ViewPager>
+
 
 </LinearLayout>

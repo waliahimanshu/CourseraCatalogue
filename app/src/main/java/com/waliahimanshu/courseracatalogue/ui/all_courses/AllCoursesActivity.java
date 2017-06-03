@@ -2,19 +2,32 @@ package com.waliahimanshu.courseracatalogue.ui.all_courses;
 
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
+import android.view.View;
 
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseActivity;
+import com.waliahimanshu.courseracatalogue.ui.HomeActivityPagerAdapter;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AllCoursesActivity extends BaseActivity {
 
-    @Inject
-    AllCoursesPresenter presenter;
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
+
+    @BindView(R.id.sliding_tabs_layout)
+    TabLayout tabLayout;
+
+    @BindView(R.id.search_view_widget)
+    View searchView;
+
 
     @Override
     protected void injectFrom(TestActivityComponent activityComponent) {
@@ -23,13 +36,17 @@ public class AllCoursesActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.all_courses_activity;
+        return R.layout.home_activity;
     }
 
     @Override
     protected void setupActivity(Bundle savedInstanceState) {
         ButterKnife.bind(this);
-        presenter.getData();
+        HomeActivityPagerAdapter myPagerAdapter = new HomeActivityPagerAdapter(getSupportFragmentManager());
+
+        viewPager.setAdapter(myPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 }
 
