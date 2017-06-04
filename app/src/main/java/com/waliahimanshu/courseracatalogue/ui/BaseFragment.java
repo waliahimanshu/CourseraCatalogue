@@ -29,7 +29,7 @@ public abstract class BaseFragment extends Fragment {
 //        injectFrom(activityComponent);
 
     }
-    protected abstract void injectFrom(TestActivityComponent activityComponent);
+    protected abstract void injectFrom(ActivityComponent activityComponent);
 
 
     protected abstract void setUpFragment( );

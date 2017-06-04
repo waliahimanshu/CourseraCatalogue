@@ -1,10 +1,10 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.courses;
 
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
 
 import java.util.List;
 
-public interface AllCoursesContract {
+public interface CoursesContract {
 
     interface Presenter {
         void getData();

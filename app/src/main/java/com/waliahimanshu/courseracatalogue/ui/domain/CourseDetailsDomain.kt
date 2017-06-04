@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses.domain
+package com.waliahimanshu.courseracatalogue.ui.domain
 
 class CourseDetailsDomain(val id: String,
                           val courseType: String,

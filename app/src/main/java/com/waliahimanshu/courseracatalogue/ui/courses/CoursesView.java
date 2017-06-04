@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.courses;
 
 
 import android.content.Context;
@@ -6,18 +6,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
 
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AllCoursesView implements AllCoursesContract.View {
+public class CoursesView implements CoursesContract.View {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -28,7 +26,7 @@ public class AllCoursesView implements AllCoursesContract.View {
 
     private Context context;
 
-    public AllCoursesView(Context context, View rootView) {
+    public CoursesView(Context context, View rootView) {
         this.context = context;
         ButterKnife.bind(this, rootView);
 

@@ -4,12 +4,16 @@ import android.content.Context;
 import android.view.View;
 
 import com.waliahimanshu.courseracatalogue.api.CourseraService;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesPresenter;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesView;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedInstructorMapper;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.LinkedPartnersMapper;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesContract;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesPresenter;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesView;
+import com.waliahimanshu.courseracatalogue.ui.partners.PartnersContract;
+import com.waliahimanshu.courseracatalogue.ui.partners.PartnersPresenter;
+import com.waliahimanshu.courseracatalogue.ui.partners.PartnersView;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesDetailDomainMapper;
+import com.waliahimanshu.courseracatalogue.ui.courses.LinkedInstructorMapper;
+import com.waliahimanshu.courseracatalogue.ui.courses.LinkedPartnersMapper;
+import com.waliahimanshu.courseracatalogue.ui.partners.PartnerDetailsDomainMapper;
 import com.waliahimanshu.courseracatalogue.ui.search.SearchActivityPresenter;
 
 import javax.inject.Singleton;
@@ -29,15 +33,15 @@ public class ActivityModule {
 
     @Provides
     @Singleton
-    public SearchActivityPresenter providesSearchActivityPresenter(AllCoursesContract.View view,
+    public SearchActivityPresenter providesSearchActivityPresenter(CoursesContract.View view,
                                                                    CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
         return new SearchActivityPresenter(view, courseraService, responseMapper);
     }
 
     @Singleton
     @Provides
-    public AllCoursesContract.View providesAllCoursesView() {
-        return new AllCoursesView(context, rootView);
+    public CoursesContract.View providesAllCoursesView() {
+        return new CoursesView(context, rootView);
     }
 
     @Singleton
@@ -48,7 +52,27 @@ public class ActivityModule {
 
     @Provides
     @Singleton
-    public AllCoursesContract.Presenter providesAllActivityPresenter(AllCoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
-        return new AllCoursesPresenter(view, courseraService, responseMapper);
+    public CoursesContract.Presenter providesAllActivityPresenter(CoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
+        return new CoursesPresenter(view, courseraService, responseMapper);
+    }
+
+
+    @Singleton
+    @Provides
+    public PartnerDetailsDomainMapper providesPartnerMapper() {
+        return new PartnerDetailsDomainMapper();
+    }
+
+    @Singleton
+    @Provides
+    public PartnersContract.View providesAllPartenerView() {
+        return new PartnersView(context, rootView);
+    }
+
+
+    @Provides
+    @Singleton
+    public PartnersContract.Presenter providesAllPartnerPresenter(PartnersContract.View view, CourseraService courseraService, PartnerDetailsDomainMapper responseMapper) {
+        return new PartnersPresenter(view, courseraService, responseMapper);
     }
 }

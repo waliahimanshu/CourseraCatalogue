@@ -1,9 +1,9 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.courses;
 
-import com.waliahimanshu.courseracatalogue.api.response_dto.CoursesResponse;
-import com.waliahimanshu.courseracatalogue.api.response_dto.Courses;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.InfoDomain;
+import com.waliahimanshu.courseracatalogue.api.courses.CoursesDto;
+import com.waliahimanshu.courseracatalogue.api.courses.CoursesResponse;
+import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.InfoDomain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,9 @@ public class CoursesDetailDomainMapper implements Function<CoursesResponse, List
 
         ArrayList<CourseDetailsDomain> courseDetailsDomains = new ArrayList<>();
 
-        for (Courses course : courses.courses) {
-            List<InfoDomain> partnersId = linkedPartnersMapper.apply(course.partnerIds, courses.linked.partners);
-            List<InfoDomain> instructorIds = instructorMapper.apply(course.instructorIds, courses.linked.instructors);
+        for (CoursesDto course : courses.cours) {
+            List<InfoDomain> partnersId = linkedPartnersMapper.apply(course.partnerIds, courses.linkedDto.partners);
+            List<InfoDomain> instructorIds = instructorMapper.apply(course.instructorIds, courses.linkedDto.instructors);
             courseDetailsDomains.add( new CourseDetailsDomain(
                     course.id,
                     course.courseType,

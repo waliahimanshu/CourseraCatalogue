@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.partners;
 
 
 import android.os.Bundle;
@@ -8,20 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.api.DebugCourseraApiModule;
+import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
 import com.waliahimanshu.courseracatalogue.di.ActivityModule;
-import com.waliahimanshu.courseracatalogue.di.DaggerTestActivityComponent;
-import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
+import com.waliahimanshu.courseracatalogue.di.CourseraApiModule;
+import com.waliahimanshu.courseracatalogue.di.DaggerActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseFragment;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
-public class AllCoursesFragment extends BaseFragment {
+public class PartnersFragment extends BaseFragment {
 
     @Inject
-    AllCoursesPresenter presenter;
+    PartnersPresenter presenter;
+
+
     private View view;
 
     @Nullable
@@ -31,9 +33,16 @@ public class AllCoursesFragment extends BaseFragment {
         ButterKnife.bind(this, view);
 
         activityModule = new ActivityModule(getContext(), view);
+//
+//        TestActivityComponent activityComponent = DaggerTestActivityComponent.builder()
+//                .debugCourseraApiModule(new DebugCourseraApiModule())
+//                .activityModule(activityModule)
+//                .build();
 
-        TestActivityComponent activityComponent = DaggerTestActivityComponent.builder()
-                .debugCourseraApiModule(new DebugCourseraApiModule())
+
+
+        ActivityComponent activityComponent = DaggerActivityComponent.builder()
+                .courseraApiModule(new CourseraApiModule())
                 .activityModule(activityModule)
                 .build();
 
@@ -44,7 +53,7 @@ public class AllCoursesFragment extends BaseFragment {
     }
 
     @Override
-    protected void injectFrom(TestActivityComponent activityComponent) {
+    protected void injectFrom(ActivityComponent activityComponent) {
         activityComponent.inject(this);
     }
 
@@ -62,6 +71,6 @@ public class AllCoursesFragment extends BaseFragment {
 
     @Override
     protected int getFragmentId() {
-        return R.layout.courses_fragment;
+        return R.layout.parnters_fragment;
     }
 }

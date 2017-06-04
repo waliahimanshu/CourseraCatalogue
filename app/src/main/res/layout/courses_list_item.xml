@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/course_logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        tools:src="@drawable/avatar_moss">
+
+    </ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/course_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="76dp"
+        android:paddingLeft="76dp"
+        android:paddingRight="76dp"
+        android:paddingTop="6dp">
+
+
+        <TextView
+            android:id="@+id/course_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp"
+            tools:text="Course Name" />
+
+        <TextView
+            android:id="@+id/instructor_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/subtitle"
+            android:textSize="14sp"
+            tools:text="Instructor name" />
+
+        <TextView
+            android:id="@+id/partner_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/subtitle"
+            android:textSize="14sp"
+            tools:text="Partner name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/course_info"
+            android:background="@color/blue_400" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+

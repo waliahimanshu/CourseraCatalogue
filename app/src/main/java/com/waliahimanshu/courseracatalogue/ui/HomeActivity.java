@@ -1,10 +1,9 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui;
 
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 
 import com.waliahimanshu.courseracatalogue.R;
@@ -12,12 +11,10 @@ import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseActivity;
 import com.waliahimanshu.courseracatalogue.ui.HomeActivityPagerAdapter;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AllCoursesActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity {
 
     @BindView(R.id.view_pager)
     ViewPager viewPager;

@@ -3,8 +3,8 @@ package com.waliahimanshu.courseracatalogue.ui.search;
 import android.util.Log;
 
 import com.waliahimanshu.courseracatalogue.api.CourseraService;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesContract;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.CoursesDetailDomainMapper;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesContract;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesDetailDomainMapper;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,14 +17,14 @@ import io.reactivex.schedulers.Schedulers;
 
 public class SearchActivityPresenter {
     private static String TAG = SearchActivityPresenter.class.getSimpleName();
-    private AllCoursesContract.View view;
+    private CoursesContract.View view;
     private CourseraService courseraService;
     private CoursesDetailDomainMapper responseMapper;
     private int noOfApiCalls = 0;
     private Disposable disposable;
 
     @Inject
-    public SearchActivityPresenter(AllCoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
+    public SearchActivityPresenter(CoursesContract.View view, CourseraService courseraService, CoursesDetailDomainMapper responseMapper) {
         this.view = view;
         this.courseraService = courseraService;
         this.responseMapper = responseMapper;

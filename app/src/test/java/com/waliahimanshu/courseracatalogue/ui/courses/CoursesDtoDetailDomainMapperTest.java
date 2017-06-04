@@ -1,10 +1,10 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.courses;
 
 import com.flextrade.jfixture.FixtureAnnotations;
 import com.flextrade.jfixture.annotations.Fixture;
-import com.waliahimanshu.courseracatalogue.api.response_dto.Courses;
-import com.waliahimanshu.courseracatalogue.api.response_dto.CoursesResponse;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.api.courses.CoursesDto;
+import com.waliahimanshu.courseracatalogue.api.courses.CoursesResponse;
+import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by waliahimanshu.
  */
-public class CoursesDetailDomainMapperTest {
+public class CoursesDtoDetailDomainMapperTest {
 
     private CoursesDetailDomainMapper sut;
 
@@ -37,7 +37,7 @@ public class CoursesDetailDomainMapperTest {
     public void mapCourseInfo() throws Exception {
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 
-        Courses actual = fixtCourseraResponse.courses.get(0);
+        CoursesDto actual = fixtCourseraResponse.cours.get(0);
         CourseDetailsDomain expectedDomain = expected.get(0);
 
         assertThat(actual.courseType, is(expectedDomain.getCourseType()));
@@ -49,8 +49,8 @@ public class CoursesDetailDomainMapperTest {
 
     @Test
     public void mapInstructorName() throws Exception {
-        fixtCourseraResponse.linked.instructors.get(0).name = "abcd";
-        fixtCourseraResponse.linked.instructors.get(0).id = fixtCourseraResponse.courses.get(0).instructorIds.get(0);
+        fixtCourseraResponse.linkedDto.instructors.get(0).name = "abcd";
+        fixtCourseraResponse.linkedDto.instructors.get(0).id = fixtCourseraResponse.cours.get(0).instructorIds.get(0);
 
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 
@@ -61,8 +61,8 @@ public class CoursesDetailDomainMapperTest {
 
     @Test
     public void mapPartnerName() throws Exception {
-        fixtCourseraResponse.linked.partners.get(0).name = "abcd";
-        fixtCourseraResponse.linked.partners.get(0).id = fixtCourseraResponse.courses.get(0).partnerIds.get(0);
+        fixtCourseraResponse.linkedDto.partners.get(0).name = "abcd";
+        fixtCourseraResponse.linkedDto.partners.get(0).id = fixtCourseraResponse.cours.get(0).partnerIds.get(0);
 
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 

@@ -4,7 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.waliahimanshu.courseracatalogue.ui.all_courses.AllCoursesFragment;
+import com.waliahimanshu.courseracatalogue.ui.courses.CoursesFragment;
+import com.waliahimanshu.courseracatalogue.ui.partners.PartnersFragment;
 
 /**
  * Created by waliahimanshu.
@@ -20,10 +21,11 @@ public class HomeActivityPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if(position ==0) {
-            return new AllCoursesFragment();
+        if (position == 0) {
+            return new CoursesFragment();
+        } else {
+            return new PartnersFragment();
         }
-        else return FragmentOne.newInstance(position);
     }
 
     @Override

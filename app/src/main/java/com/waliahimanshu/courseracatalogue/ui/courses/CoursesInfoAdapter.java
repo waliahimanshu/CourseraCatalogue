@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.all_courses;
+package com.waliahimanshu.courseracatalogue.ui.courses;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.CourseDetailsDomain;
-import com.waliahimanshu.courseracatalogue.ui.all_courses.domain.InfoDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.InfoDomain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.list_item, parent, false);
+        View view = layoutInflater.inflate(R.layout.courses_list_item, parent, false);
         return new MyViewHolder(view);
     }
 
