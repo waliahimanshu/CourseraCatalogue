@@ -16,10 +16,12 @@ public class PartnerResponseDto {
     @SerializedName("elements")
     @Expose
     public List<PartnersDto> partners = null;
-    @SerializedName("pagingDto")
+
+    @SerializedName("paging")
     @Expose
     public PagingDto pagingDto;
-    @SerializedName("linkedDto")
+
+    @SerializedName("linked")
     @Expose
     public LinkedDto linkedDto;
 

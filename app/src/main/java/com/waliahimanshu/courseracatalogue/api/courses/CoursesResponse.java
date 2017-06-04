@@ -11,11 +11,13 @@ public class CoursesResponse {
 
     @SerializedName("elements")
     @Expose
-    public List<CoursesDto> cours = null;
-    @SerializedName("pagingDto")
+    public List<CoursesDto> course = null;
+
+    @SerializedName("paging")
     @Expose
     public PagingDto pagingDto;
-    @SerializedName("linkedDto")
+
+    @SerializedName("linked")
     @Expose
     public LinkedDto linkedDto;
 

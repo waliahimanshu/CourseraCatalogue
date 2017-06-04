@@ -10,6 +10,7 @@ public class LinkedDto {
 
     @SerializedName("partners.v1")
     public List<PartnersDto> partners;
+
     @SerializedName("instructors.v1")
     public List<InstructorsDto> instructors;
 

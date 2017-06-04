@@ -8,6 +8,7 @@ public class PagingDto {
     @SerializedName("next")
     @Expose
     public String next;
+
     @SerializedName("total")
     @Expose
     public Integer total;

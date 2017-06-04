@@ -28,7 +28,7 @@ public class CoursesDetailDomainMapper implements Function<CoursesResponse, List
 
         ArrayList<CourseDetailsDomain> courseDetailsDomains = new ArrayList<>();
 
-        for (CoursesDto course : courses.cours) {
+        for (CoursesDto course : courses.course) {
             List<InfoDomain> partnersId = linkedPartnersMapper.apply(course.partnerIds, courses.linkedDto.partners);
             List<InfoDomain> instructorIds = instructorMapper.apply(course.instructorIds, courses.linkedDto.instructors);
             courseDetailsDomains.add( new CourseDetailsDomain(

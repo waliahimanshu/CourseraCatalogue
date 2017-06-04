@@ -37,7 +37,7 @@ public class CoursesDtoDetailDomainMapperTest {
     public void mapCourseInfo() throws Exception {
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 
-        CoursesDto actual = fixtCourseraResponse.cours.get(0);
+        CoursesDto actual = fixtCourseraResponse.course.get(0);
         CourseDetailsDomain expectedDomain = expected.get(0);
 
         assertThat(actual.courseType, is(expectedDomain.getCourseType()));
@@ -50,7 +50,7 @@ public class CoursesDtoDetailDomainMapperTest {
     @Test
     public void mapInstructorName() throws Exception {
         fixtCourseraResponse.linkedDto.instructors.get(0).name = "abcd";
-        fixtCourseraResponse.linkedDto.instructors.get(0).id = fixtCourseraResponse.cours.get(0).instructorIds.get(0);
+        fixtCourseraResponse.linkedDto.instructors.get(0).id = fixtCourseraResponse.course.get(0).instructorIds.get(0);
 
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 
@@ -62,7 +62,7 @@ public class CoursesDtoDetailDomainMapperTest {
     @Test
     public void mapPartnerName() throws Exception {
         fixtCourseraResponse.linkedDto.partners.get(0).name = "abcd";
-        fixtCourseraResponse.linkedDto.partners.get(0).id = fixtCourseraResponse.cours.get(0).partnerIds.get(0);
+        fixtCourseraResponse.linkedDto.partners.get(0).id = fixtCourseraResponse.course.get(0).partnerIds.get(0);
 
         List<CourseDetailsDomain> expected = sut.apply(fixtCourseraResponse);
 

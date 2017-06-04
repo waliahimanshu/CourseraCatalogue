@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface CourseraService {
 
-    @GET("api/cours.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,partnerLogo,photoUrl,description,primaryLanguages,subtitleLanguages,certificates,startDate,workload,previewLink,specializations,s12nlds,domainTypes,categories&limit=7")
+    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,partnerLogo,photoUrl,description,primaryLanguages,subtitleLanguages,certificates,startDate,workload,previewLink,specializations,s12nlds,domainTypes,categories&limit=7")
     Single<CoursesResponse> getAllCourses();
 
     /**
@@ -18,7 +18,7 @@ public interface CourseraService {
      * Query("start") String start
      * Query("limit") String limit
      */
-    @GET("api/cours.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds&q=search")
+    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds&q=search")
     Single<CoursesResponse> search(@Query("query") String query);
 
 

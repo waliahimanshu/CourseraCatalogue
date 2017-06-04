@@ -22,7 +22,7 @@ public class CoursesDto {
     public String photoUrl;
 
     @SerializedName("instructorIds")
-    public List<String > instructorIds;
+    public List<String> instructorIds;
 
     @SerializedName("partnerIds")
     public List<String> partnerIds;

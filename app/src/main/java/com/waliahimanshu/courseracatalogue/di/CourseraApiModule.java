@@ -1,5 +1,7 @@
 package com.waliahimanshu.courseracatalogue.di;
 
+import android.content.Context;
+
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.waliahimanshu.courseracatalogue.BuildConfig;
 import com.waliahimanshu.courseracatalogue.api.CourseraService;
@@ -10,6 +12,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -20,11 +23,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CourseraApiModule {
 
     private static final String BASE_URL = "https://api.coursera.org/";
+    private Context context;
+
+    public CourseraApiModule(Context context) {
+
+        this.context = context;
+    }
 
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.cache(new Cache(context.getCacheDir(),10 * 1024 * 1024));
         if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);

@@ -42,7 +42,7 @@ public class PartnersFragment extends BaseFragment {
 
 
         ActivityComponent activityComponent = DaggerActivityComponent.builder()
-                .courseraApiModule(new CourseraApiModule())
+                .courseraApiModule(new CourseraApiModule(getContext()))
                 .activityModule(activityModule)
                 .build();
 
