@@ -4,10 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.waliahimanshu.courseracatalogue.BuildConfig;
 import com.waliahimanshu.courseracatalogue.api.CourseraService;
+import com.waliahimanshu.courseracatalogue.util.AndroidUtil;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
@@ -18,6 +17,7 @@ import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -41,42 +41,55 @@ public class CourseraApiModule {
     public OkHttpClient provideOkHttpClient() {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
+        builder.addInterceptor(getHttpLoggingInterceptor());
+        builder.addInterceptor(getStethoInterceptor());
+        builder.addNetworkInterceptor(getResponseCacheInterceptor());
+        builder.addInterceptor(getOfflineResponseInterceptor());
+        builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS);
+        builder.readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
         builder.cache(new Cache(context.getCacheDir(), 10 * 1024 * 1024));
-        builder.interceptors(provideCacheInterceptor());
 
-        if (BuildConfig.DEBUG) {
-            builder.addInterceptor(getHttpLoggingInterceptor());
-            builder.addInterceptor(getStethoInterceptor());
-        }
-
-        builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
-                .readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
         return builder.build();
     }
 
     private StethoInterceptor getStethoInterceptor() {
         return new StethoInterceptor();
-
-
     }
 
-    private Interceptor provideCacheInterceptor() {
-        return new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Response response = chain.proceed(chain.request());
+    /**
+     * bug https://github.com/square/okhttp/issues/3174
+     */
+    private Interceptor getResponseCacheInterceptor() {
+        return chain -> {
+            Response response = chain.proceed(chain.request());
 
-                CacheControl cacheControl = new CacheControl.Builder()
-                        .maxAge(1, TimeUnit.MINUTES)
-                        .build();
 
-                return response.newBuilder()
-                        .header(CACHE_CONTROL, cacheControl.toString())
-                        .build();
-            }
+            CacheControl cacheControl = new CacheControl.Builder()
+                    .maxAge(3, TimeUnit.MINUTES)
+                    .build();
+
+            return response.newBuilder()
+                    .header(CACHE_CONTROL, cacheControl.toString())
+                    .build();
         };
     }
 
+    private Interceptor getOfflineResponseInterceptor(){
+
+        return chain -> {
+            Request request = chain.request();
+            if (!AndroidUtil.isNetworkAvailable(context)) {
+                CacheControl cacheControl = new CacheControl.Builder()
+                        .maxStale(7, TimeUnit.DAYS)
+                        .build();
+
+                request = request.newBuilder()
+                        .cacheControl(cacheControl)
+                        .build();
+            }
+            return chain.proceed(request);
+        };
+    }
 
     @NonNull
     private HttpLoggingInterceptor getHttpLoggingInterceptor() {
