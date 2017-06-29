@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_margin="8dp"
-        android:contentDescription="@null" />
 
 
     <LinearLayout
         android:id="@+id/course_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingEnd="76dp"
-        android:paddingLeft="76dp"
-        android:paddingRight="76dp"
-        android:paddingTop="6dp">
+        android:orientation="vertical">
 
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="370dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
             tools:text="Course Name" />
@@ -36,6 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="4"
+            android:layout_marginLeft="8dp"
+
             android:textColor="@color/subtitle"
             android:ellipsize="end"
             android:textSize="14sp"
@@ -46,6 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/subtitle"
+            android:layout_marginLeft="8dp"
+
             android:textSize="14sp"
             tools:text="Partner name" />
 
@@ -56,7 +58,6 @@
 
     </LinearLayout>
 
-
-</RelativeLayout>
+</android.support.v7.widget.CardView>
 
 
