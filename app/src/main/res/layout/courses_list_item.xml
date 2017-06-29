@@ -5,13 +5,11 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/course_logo"
+        android:id="@+id/image"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
-        tools:src="@drawable/avatar_moss">
-
-    </ImageView>
+        android:contentDescription="@null" />
 
 
     <LinearLayout
@@ -26,7 +24,7 @@
 
 
         <TextView
-            android:id="@+id/course_name"
+            android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="?android:attr/textColorPrimary"
@@ -34,10 +32,12 @@
             tools:text="Course Name" />
 
         <TextView
-            android:id="@+id/instructor_id"
+            android:id="@+id/description_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="4"
             android:textColor="@color/subtitle"
+            android:ellipsize="end"
             android:textSize="14sp"
             tools:text="Instructor name" />
 
@@ -52,7 +52,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/course_info"
             android:background="@color/blue_400" />
 
     </LinearLayout>

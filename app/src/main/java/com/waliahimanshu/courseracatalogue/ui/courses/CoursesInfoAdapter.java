@@ -54,16 +54,16 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.course_name)
+        @BindView(R.id.title_name)
         TextView courseName;
 
-        @BindView(R.id.instructor_id)
+        @BindView(R.id.description_text)
         TextView instructorName;
 
         @BindView(R.id.partner_id)
         TextView partnerName;
 
-        @BindView(R.id.course_logo)
+        @BindView(R.id.image)
         ImageView courseLogo;
 
         MyViewHolder(View itemView) {

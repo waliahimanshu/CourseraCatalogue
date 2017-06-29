@@ -3,6 +3,7 @@ package com.waliahimanshu.courseracatalogue.di;
 
 import com.waliahimanshu.courseracatalogue.ui.HomeActivity;
 import com.waliahimanshu.courseracatalogue.ui.courses.CoursesFragment;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorFragment;
 import com.waliahimanshu.courseracatalogue.ui.partners.PartnersFragment;
 
 import javax.inject.Singleton;
@@ -21,4 +22,6 @@ public interface ActivityComponent {
     void inject(CoursesFragment coursesFragment);
 
     void inject(PartnersFragment partnersFragment);
+
+    void inject(InstructorFragment instructorFragment);
 }

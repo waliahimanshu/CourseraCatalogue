@@ -7,6 +7,11 @@ import com.waliahimanshu.courseracatalogue.api.CourseraService;
 import com.waliahimanshu.courseracatalogue.ui.courses.CoursesContract;
 import com.waliahimanshu.courseracatalogue.ui.courses.CoursesPresenter;
 import com.waliahimanshu.courseracatalogue.ui.courses.CoursesView;
+import com.waliahimanshu.courseracatalogue.ui.domain.InstructorDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorContract;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorDetailsDomainMapper;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorPresenter;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorView;
 import com.waliahimanshu.courseracatalogue.ui.partners.PartnersContract;
 import com.waliahimanshu.courseracatalogue.ui.partners.PartnersPresenter;
 import com.waliahimanshu.courseracatalogue.ui.partners.PartnersView;
@@ -65,7 +70,7 @@ public class ActivityModule {
 
     @Singleton
     @Provides
-    public PartnersContract.View providesAllPartenerView() {
+    public PartnersContract.View providesAllPartnerView() {
         return new PartnersView(context, rootView);
     }
 
@@ -74,5 +79,18 @@ public class ActivityModule {
     @Singleton
     public PartnersContract.Presenter providesAllPartnerPresenter(PartnersContract.View view, CourseraService courseraService, PartnerDetailsDomainMapper responseMapper) {
         return new PartnersPresenter(view, courseraService, responseMapper);
+    }
+
+    @Singleton
+    @Provides
+    public InstructorContract.View providesAllInstructorView() {
+        return new InstructorView(context, rootView);
+    }
+
+
+    @Provides
+    @Singleton
+    public InstructorContract.Presenter providesAllInstructorPresenter(InstructorContract.View view, CourseraService courseraService, InstructorDetailsDomainMapper instructorDetailsDomainMapper) {
+        return new InstructorPresenter(view, courseraService, instructorDetailsDomainMapper);
     }
 }

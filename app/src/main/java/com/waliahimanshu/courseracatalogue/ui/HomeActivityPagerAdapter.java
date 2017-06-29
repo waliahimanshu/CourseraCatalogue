@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.waliahimanshu.courseracatalogue.ui.courses.CoursesFragment;
+import com.waliahimanshu.courseracatalogue.ui.instructors.InstructorFragment;
 import com.waliahimanshu.courseracatalogue.ui.partners.PartnersFragment;
 
 /**
@@ -21,10 +22,15 @@ public class HomeActivityPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new CoursesFragment();
-        } else {
-            return new PartnersFragment();
+        switch (position) {
+            case 0:
+                return new CoursesFragment();
+            case 1:
+                return new PartnersFragment();
+            case 2:
+                return new InstructorFragment();
+            default:
+                throw new IllegalArgumentException("Not a valid tab position " + position);
         }
     }
 

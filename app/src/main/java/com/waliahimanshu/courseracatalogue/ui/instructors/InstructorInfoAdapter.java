@@ -1,4 +1,4 @@
-package com.waliahimanshu.courseracatalogue.ui.partners;
+package com.waliahimanshu.courseracatalogue.ui.instructors;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,21 +10,21 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.waliahimanshu.courseracatalogue.R;
-import com.waliahimanshu.courseracatalogue.ui.domain.PartnerDetailsDomain;
+import com.waliahimanshu.courseracatalogue.ui.domain.InstructorDetailsDomain;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapter.MyViewHolder> {
+public class InstructorInfoAdapter extends RecyclerView.Adapter<InstructorInfoAdapter.MyViewHolder> {
 
     private final LayoutInflater layoutInflater;
-    private List<PartnerDetailsDomain> partnerDetailsDomains;
+    private List<InstructorDetailsDomain> instructorDetailsDomains;
 
-    public PartnersInfoAdapter(Context context, List<PartnerDetailsDomain> partnerDetailsDomains) {
+    public InstructorInfoAdapter(Context context, List<InstructorDetailsDomain> instructorDetailsDomains) {
         layoutInflater = LayoutInflater.from(context);
-        this.partnerDetailsDomains = partnerDetailsDomains;
+        this.instructorDetailsDomains = instructorDetailsDomains;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        PartnerDetailsDomain currentObject = partnerDetailsDomains.get(position);
+        InstructorDetailsDomain currentObject = instructorDetailsDomains.get(position);
         holder.setData(currentObject);
     }
 
@@ -46,7 +46,7 @@ public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapte
 
     @Override
     public int getItemCount() {
-        return partnerDetailsDomains.size();
+        return instructorDetailsDomains.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -68,15 +68,12 @@ public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapte
             ButterKnife.bind(this, itemView);
         }
 
-        void setData(PartnerDetailsDomain currentObject) {
-            courseName.setText(currentObject.name);
-
-
-            instructorName.setText(currentObject.shortName);
-
+        void setData(InstructorDetailsDomain currentObject) {
+            courseName.setText(currentObject.fullName);
+            instructorName.setText(currentObject.bio);
 
             Picasso.with(itemView.getContext())
-                    .load(currentObject.logo)
+                    .load(currentObject.photo)
                     .into(courseLogo);
         }
     }
