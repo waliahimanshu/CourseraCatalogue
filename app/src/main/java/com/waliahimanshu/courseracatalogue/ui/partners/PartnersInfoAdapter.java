@@ -77,8 +77,6 @@ public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapte
 
             Picasso.with(itemView.getContext())
                     .load(currentObject.logo)
-                    .placeholder(R.drawable.default_image)
-                    .error(R.drawable.avatar_moss)
                     .into(courseLogo);
         }
     }

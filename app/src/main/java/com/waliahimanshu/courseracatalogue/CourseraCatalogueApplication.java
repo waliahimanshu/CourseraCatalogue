@@ -27,7 +27,12 @@ public class CourseraCatalogueApplication extends Application {
                 .detectLeakedSqlLiteObjects()
                 .detectLeakedClosableObjects()
                 .penaltyLog()       // Log the problem
-                .penaltyDeath()     // Then kill the app
+
+                /**
+                 *
+                 * enable death enalty when bug https://github.com/square/okhttp/issues/3174 is closed
+                 */
+//                .penaltyDeath()     // Then kill the app
                 .build());
     }
 }

@@ -42,7 +42,7 @@ public class CourseraApiModule {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         builder.addInterceptor(getHttpLoggingInterceptor());
-        builder.addInterceptor(getStethoInterceptor());
+        builder.addNetworkInterceptor(getStethoInterceptor());
         builder.addNetworkInterceptor(getResponseCacheInterceptor());
         builder.addInterceptor(getOfflineResponseInterceptor());
         builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS);
@@ -56,9 +56,6 @@ public class CourseraApiModule {
         return new StethoInterceptor();
     }
 
-    /**
-     * bug https://github.com/square/okhttp/issues/3174
-     */
     private Interceptor getResponseCacheInterceptor() {
         return chain -> {
             Response response = chain.proceed(chain.request());
