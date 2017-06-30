@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.ui.domain.PartnerDetailsDomain;
+import com.waliahimanshu.courseracatalogue.util.CircleTransform;
 
 import java.util.List;
 
@@ -77,6 +78,7 @@ public class PartnersInfoAdapter extends RecyclerView.Adapter<PartnersInfoAdapte
 
             Picasso.with(itemView.getContext())
                     .load(currentObject.logo)
+                    .transform(new CircleTransform())
                     .into(courseLogo);
         }
     }

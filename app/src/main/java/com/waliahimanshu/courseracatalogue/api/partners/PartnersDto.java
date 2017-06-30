@@ -33,10 +33,10 @@ public class PartnersDto {
     String rectangularLogo;
 
     @SerializedName("logo")
-    public  String logo;
+    public String logo;
 
     @SerializedName("squareLogo")
-    String squareLogo;
+    public String squareLogo;
 
     @SerializedName("links")
     SocialMediaLinksDto socialMediaLinksDto;

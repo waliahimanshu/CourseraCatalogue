@@ -10,7 +10,9 @@ import retrofit2.http.Query;
 
 public interface CourseraService {
 
-    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,partnerLogo,photoUrl,description,primaryLanguages,subtitleLanguages,certificates,startDate,workload,previewLink,specializations,s12nlds,domainTypes,categories&limit=7")
+    @GET("api/courses.v1?includes=partnerIds,instructorIds&fields=partnerIds,instructorIds,partnerLogo,photoUrl,description," +
+            "primaryLanguages,subtitleLanguages,certificates,startDate,workload,previewLink,specializations," +
+            "s12nlds,domainTypes,categories&limit=100")
     Single<CoursesResponse> getAllCourses();
 
     /**
@@ -23,11 +25,11 @@ public interface CourseraService {
 
 
     @GET("api/partners.v1?includes=instructorIds&fields=instructorIds,name,description,banner,courseIds," +
-            "primaryColor,logo,squareLogo,rectangularLogo,links,location&limit=7")
+            "primaryColor,logo,squareLogo,rectangularLogo,links,location&limit=100")
     Single<PartnerResponseDto> getPartners();
 
 
-    @GET("api/instructors.v1?fields=bio,photo&limit=7")
+    @GET("api/instructors.v1?fields=bio,photo&limit=100")
     Single<InstructorResponseDto> getInstructors();
 
 

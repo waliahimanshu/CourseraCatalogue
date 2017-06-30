@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import com.waliahimanshu.courseracatalogue.R;
 import com.waliahimanshu.courseracatalogue.ui.domain.CourseDetailsDomain;
 import com.waliahimanshu.courseracatalogue.ui.domain.InfoDomain;
+import com.waliahimanshu.courseracatalogue.util.CircleTransform;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +89,7 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
 
             Picasso.with(itemView.getContext())
                     .load(currentObject.getPhotoUrl())
+                    .transform(new CircleTransform())
                     .into(courseLogo);
         }
     }

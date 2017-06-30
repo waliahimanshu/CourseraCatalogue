@@ -83,7 +83,6 @@ dependencies {
     compile 'com.flextrade.jfixture:jfixture:2.7.0'
 
 
-
     compile 'com.github.arimorty:floatingsearchview:2.0.4'
 
     //Butterknife
@@ -108,4 +107,6 @@ dependencies {
 
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

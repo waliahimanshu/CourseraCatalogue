@@ -25,7 +25,7 @@ public class PartnerDetailsDomainMapper implements Function<PartnerResponseDto, 
                     partnersDto.id,
                     partnersDto.name,
                     partnersDto.shortName,
-                    partnersDto.logo));
+                    partnersDto.squareLogo));
         }
         return partnerDetailsDomains;
     }
