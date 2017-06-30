@@ -27,7 +27,7 @@ public class PartnersDto {
     String primaryColor;
 
     @SerializedName("description")
-    String description;
+    public String description;
 
     @SerializedName("rectangularLogo")
     String rectangularLogo;

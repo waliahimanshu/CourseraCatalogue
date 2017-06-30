@@ -35,6 +35,7 @@ public class CoursesDetailDomainMapper implements Function<CoursesResponse, List
                     course.id,
                     course.courseType,
                     course.name,
+                    course.description,
                     course.slug,
                     course.photoUrl,
                     partnersId,

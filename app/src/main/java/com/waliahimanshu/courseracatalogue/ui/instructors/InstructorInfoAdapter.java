@@ -52,33 +52,31 @@ public class InstructorInfoAdapter extends RecyclerView.Adapter<InstructorInfoAd
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.title_name)
-        TextView courseName;
+        @BindView(R.id.title)
+        TextView title;
 
-        @BindView(R.id.description_text)
-        TextView instructorName;
-
-        @BindView(R.id.partner_id)
-        TextView partnerName;
+        @BindView(R.id.description)
+        TextView description;
 
         @BindView(R.id.image)
-        ImageView courseLogo;
+        ImageView instructorLogo;
 
         MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        void setData(InstructorDetailsDomain currentObject) {
-            courseName.setText(currentObject.fullName);
-            instructorName.setText(currentObject.bio);
+        void setData(InstructorDetailsDomain instructorDomain) {
+            title.setText(instructorDomain.fullName);
+            description.setText(instructorDomain.bio);
 
-            Picasso.with(itemView.getContext())
-                    .load(currentObject.photo)
-                    .transform(new CircleTransform())
-                    .into(courseLogo);
+                Picasso.with(itemView.getContext())
+                        .load(instructorDomain.photo)
+                        .placeholder(R.drawable.ic_face_black_24dp)
+                        .transform(new CircleTransform())
+                        .into(instructorLogo);
+            }
         }
     }
-}
 
 

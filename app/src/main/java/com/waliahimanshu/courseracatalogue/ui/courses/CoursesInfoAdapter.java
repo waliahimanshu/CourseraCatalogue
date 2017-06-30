@@ -55,13 +55,13 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.title_name)
-        TextView courseName;
+        @BindView(R.id.title)
+        TextView titleName;
 
-        @BindView(R.id.description_text)
-        TextView instructorName;
+        @BindView(R.id.description)
+        TextView description;
 
-        @BindView(R.id.partner_id)
+        @BindView(R.id.partner)
         TextView partnerName;
 
         @BindView(R.id.image)
@@ -72,23 +72,19 @@ public class CoursesInfoAdapter extends RecyclerView.Adapter<CoursesInfoAdapter.
             ButterKnife.bind(this, itemView);
         }
 
-        void setData(CourseDetailsDomain currentObject) {
-            courseName.setText(currentObject.getName());
+        void setData(CourseDetailsDomain courseDomain) {
+            titleName.setText(courseDomain.getName());
 
-            ArrayList<String> strings = new ArrayList<>();
-            for (InfoDomain moreInfoDomain : currentObject.getInstructorName()) {
-                strings.add(moreInfoDomain.getName());
-            }
-            instructorName.setText(TextUtils.join(",", strings));
+            description.setText(courseDomain.getDescription());
 
             ArrayList<String> partner = new ArrayList<>();
-            for (InfoDomain moreInfoDomain : currentObject.getPartnerName()) {
+            for (InfoDomain moreInfoDomain : courseDomain.getPartnerName()) {
                 partner.add(moreInfoDomain.getName());
             }
             partnerName.setText(TextUtils.join(",", partner));
 
             Picasso.with(itemView.getContext())
-                    .load(currentObject.getPhotoUrl())
+                    .load(courseDomain.getPhotoUrl())
                     .transform(new CircleTransform())
                     .into(courseLogo);
         }

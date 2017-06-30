@@ -2,10 +2,7 @@ package com.waliahimanshu.courseracatalogue.ui.instructors;
 
 import com.waliahimanshu.courseracatalogue.api.instructors.InstructorResponseDto;
 import com.waliahimanshu.courseracatalogue.api.instructors.InstructorsDto;
-import com.waliahimanshu.courseracatalogue.api.partners.PartnerResponseDto;
-import com.waliahimanshu.courseracatalogue.api.partners.PartnersDto;
 import com.waliahimanshu.courseracatalogue.ui.domain.InstructorDetailsDomain;
-import com.waliahimanshu.courseracatalogue.ui.domain.PartnerDetailsDomain;
 
 import java.util.ArrayList;
 import java.util.List;

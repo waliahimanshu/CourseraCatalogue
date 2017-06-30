@@ -15,6 +15,9 @@ public class CoursesDto {
     @SerializedName("slug")
     public String slug;
 
+    @SerializedName("description")
+    public String description;
+
     @SerializedName("name")
     public String name;
 

@@ -24,6 +24,7 @@ public class PartnerDetailsDomainMapper implements Function<PartnerResponseDto, 
             partnerDetailsDomains.add( new PartnerDetailsDomain(
                     partnersDto.id,
                     partnersDto.name,
+                    partnersDto.description,
                     partnersDto.shortName,
                     partnersDto.squareLogo));
         }

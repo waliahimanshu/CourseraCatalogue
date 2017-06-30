@@ -15,37 +15,36 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/title_name"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
-            tools:text="Course Name" />
+            tools:text="title title title title title title title title title title" />
 
         <TextView
-            android:id="@+id/description_text"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scrollHorizontally="true"
             android:ellipsize="end"
-
-            android:maxLines="4"
+            android:maxLines="1"
             android:textColor="@color/subtitle"
             android:textSize="14sp"
-            tools:text="Instructor name" />
+            tools:text="description description description description description description" />
 
         <TextView
-            android:id="@+id/partner_id"
+            android:id="@+id/partner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/subtitle"
             android:textSize="14sp"
-            tools:text="Partner name" />
+            tools:text="Partner name Partner name Partner name Partner name" />
 
 
         <View
