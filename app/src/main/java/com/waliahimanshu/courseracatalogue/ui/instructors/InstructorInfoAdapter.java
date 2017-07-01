@@ -72,7 +72,7 @@ public class InstructorInfoAdapter extends RecyclerView.Adapter<InstructorInfoAd
 
                 Picasso.with(itemView.getContext())
                         .load(instructorDomain.photo)
-                        .placeholder(R.drawable.ic_face_black_24dp)
+                        .placeholder(R.drawable.ic_tag_faces_black_24dp)
                         .transform(new CircleTransform())
                         .into(instructorLogo);
             }
