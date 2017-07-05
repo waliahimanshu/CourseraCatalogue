@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.waliahimanshu.courseracatalogue.R;
+import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
 import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 import com.waliahimanshu.courseracatalogue.ui.BaseActivity;
 import com.waliahimanshu.courseracatalogue.ui.HomeActivityPagerAdapter;
@@ -27,7 +28,7 @@ public class HomeActivity extends BaseActivity {
 
 
     @Override
-    protected void injectFrom(TestActivityComponent activityComponent) {
+    protected void injectFrom(ActivityComponent activityComponent) {
         activityComponent.inject(this);
     }
 

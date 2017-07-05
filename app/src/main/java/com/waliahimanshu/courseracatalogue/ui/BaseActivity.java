@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.waliahimanshu.courseracatalogue.di.ActivityComponent;
 import com.waliahimanshu.courseracatalogue.di.ActivityModule;
 import com.waliahimanshu.courseracatalogue.di.TestActivityComponent;
 
@@ -32,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-    protected abstract void injectFrom(TestActivityComponent activityComponent);
+    protected abstract void injectFrom(ActivityComponent activityComponent);
 
     protected abstract int getLayoutId();
 

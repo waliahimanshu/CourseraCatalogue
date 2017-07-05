@@ -24,24 +24,6 @@ android {
         }
     }
 
-    // Specifies a flavor dimension.
-    flavorDimensions "color"
-
-    productFlavors {
-        red {
-            // Assigns this product flavor to the 'color' flavor dimension.
-            // This step is optional if you are using only one dimension.
-            dimension "color"
-            applicationId 'com.waliahimanshu.courseracatalogue.internal'
-        }
-
-        blue {
-            dimension "color"
-            applicationId 'com.waliahimanshu.courseracatalogue'
-        }
-    }
-
-
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8

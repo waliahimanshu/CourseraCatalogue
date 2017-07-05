@@ -32,18 +32,10 @@ public class CoursesFragment extends BaseFragment {
 
         activityModule = new ActivityModule(getContext(), view);
 
-//        TestActivityComponent activityComponent = DaggerTestActivityComponent.builder()
-//                .debugCourseraApiModule(new DebugCourseraApiModule())
-//                .activityModule(activityModule)
-//                .build();
-
-
-
-      ActivityComponent activityComponent = DaggerActivityComponent.builder()
+        ActivityComponent activityComponent = DaggerActivityComponent.builder()
                 .courseraApiModule(new CourseraApiModule(getContext()))
                 .activityModule(activityModule)
                 .build();
-
 
 
         injectFrom(activityComponent);
@@ -62,11 +54,11 @@ public class CoursesFragment extends BaseFragment {
         presenter.getData();
 
     }
+
     @Override
     protected View getFragmentView() {
         return view;
     }
-
 
 
     @Override
