@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/tab_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tab_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tab_item_icon"
+        android:paddingLeft="8dp"
+        android:text="€98.65" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/time"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tab_item_price"
+        android:layout_toEndOf="@+id/tab_item_icon"
+        android:layout_toRightOf="@+id/tab_item_icon"
+        android:paddingLeft="8dp"
+        android:text="2h 12m" />
+</RelativeLayout>
